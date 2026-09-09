@@ -47,6 +47,7 @@ import type {
 } from './Plugin.js';
 import type { BlockTypePickerRegistry } from './heading/BlockTypePickerRegistry.js';
 import type { ToolbarRegistry } from './toolbar/ToolbarRegistry.js';
+import { EditorView } from '../view/EditorView';
 
 const DEFAULT_PRIORITY = 100;
 const guardedDOMRenderers = new WeakSet<object>();
@@ -84,7 +85,7 @@ export interface ContextFactoryDeps {
 	readonly pluginId: string;
 	readonly logger: Logger;
 	getState(): EditorState;
-	getHistory(): HistoryManager;
+	getView(): EditorView | null;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;
@@ -306,15 +307,15 @@ function guardNodeSpec<T extends string>(
 	const toDOM: NodeSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (node) => {
-				const outcome = executor.execute(
-					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-					() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
-				);
-				if (outcome.ok) return outcome.value;
-				const fallback = document.createElement('div');
-				fallback.setAttribute('data-block-id', node.id);
-				return fallback;
-			};
+			const outcome = executor.execute(
+				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+				() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
+			);
+			if (outcome.ok) return outcome.value;
+			const fallback = document.createElement('div');
+			fallback.setAttribute('data-block-id', node.id);
+			return fallback;
+		};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -329,12 +330,12 @@ function guardMarkSpec<T extends string>(
 	const toDOM: MarkSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (mark) => {
-				const outcome = executor.execute(
-					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-					() => requireHTMLElement(originalToDOM(mark), `${spec.type}.toDOM`),
-				);
-				return outcome.ok ? outcome.value : document.createElement('span');
-			};
+			const outcome = executor.execute(
+				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+				() => requireHTMLElement(originalToDOM(mark), `${spec.type}.toDOM`),
+			);
+			return outcome.ok ? outcome.value : document.createElement('span');
+		};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -349,15 +350,15 @@ function guardInlineNodeSpec<T extends string>(
 	const toDOM: InlineNodeSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (node) => {
-				const outcome = executor.execute(
-					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-					() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
-				);
-				if (outcome.ok) return outcome.value;
-				const fallback = document.createElement('span');
-				fallback.setAttribute('data-inline-type', node.inlineType);
-				return fallback;
-			};
+			const outcome = executor.execute(
+				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+				() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
+			);
+			if (outcome.ok) return outcome.value;
+			const fallback = document.createElement('span');
+			fallback.setAttribute('data-inline-type', node.inlineType);
+			return fallback;
+		};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -475,34 +476,34 @@ function guardMarkdownSyntaxExtension(
 		...extension,
 		...(matchInline
 			? {
-					matchInline(text: string, index: number) {
-						const outcome = executor.execute(
-							{
-								pluginId,
-								name: `${extension.id}:matchInline`,
-								kind: 'markdown-syntax',
-							},
-							() => validateInlineMarkdownMatch(matchInline(text, index), text.length - index),
-						);
-						return outcome.ok ? outcome.value : null;
-					},
-				}
+				matchInline(text: string, index: number) {
+					const outcome = executor.execute(
+						{
+							pluginId,
+							name: `${extension.id}:matchInline`,
+							kind: 'markdown-syntax',
+						},
+						() => validateInlineMarkdownMatch(matchInline(text, index), text.length - index),
+					);
+					return outcome.ok ? outcome.value : null;
+				},
+			}
 			: {}),
 		...(matchBlock
 			? {
-					matchBlock(lines: readonly string[], lineIndex: number) {
-						const outcome = executor.execute(
-							{
-								pluginId,
-								name: `${extension.id}:matchBlock`,
-								kind: 'markdown-syntax',
-							},
-							() =>
-								validateBlockMarkdownMatch(matchBlock(lines, lineIndex), lines.length - lineIndex),
-						);
-						return outcome.ok ? outcome.value : null;
-					},
-				}
+				matchBlock(lines: readonly string[], lineIndex: number) {
+					const outcome = executor.execute(
+						{
+							pluginId,
+							name: `${extension.id}:matchBlock`,
+							kind: 'markdown-syntax',
+						},
+						() =>
+							validateBlockMarkdownMatch(matchBlock(lines, lineIndex), lines.length - lineIndex),
+					);
+					return outcome.ok ? outcome.value : null;
+				},
+			}
 			: {}),
 	};
 }
@@ -632,7 +633,7 @@ export function createPluginContext(deps: ContextFactoryDeps): {
 
 	const context: PluginContext = {
 		getState: deps.getState,
-		getHistory: deps.getHistory,
+		getView: deps.getView,
 		dispatch: deps.dispatch,
 		getContainer: deps.getContainer,
 		getPluginContainer: deps.getPluginContainer,

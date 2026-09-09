@@ -58,3 +58,5 @@ export * from './plugins/language/index.js';
 export * from './plugins/text-direction/index.js';
 export * from './plugins/bidi-isolation/index.js';
 export * from './plugins/text-direction-auto/index.js';
+export * from './plugins/undo/index.js';
+export * from './plugins/redo/index.js';

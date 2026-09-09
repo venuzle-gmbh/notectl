@@ -205,9 +205,8 @@ class EditorInitSession {
 				if (!this.view) throw new Error('View not initialized');
 				return this.view.getState();
 			},
-			getHistory: () => {
-				if (!this.view) throw new Error('View not initialized');
-				return this.view.history;
+			getView: () => {
+				return this.view ?? null;
 			},
 			dispatch: (tr: Transaction) => this.dispatch(tr),
 			getContainer: () => dom.content,

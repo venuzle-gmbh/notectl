@@ -38,6 +38,8 @@ const pluginEntries: Record<string, string> = {
 	'plugins/text-direction': resolve(__dirname, 'src/plugins/text-direction/index.ts'),
 	'plugins/bidi-isolation': resolve(__dirname, 'src/plugins/bidi-isolation/index.ts'),
 	'plugins/text-direction-auto': resolve(__dirname, 'src/plugins/text-direction-auto/index.ts'),
+	'plugins/undo': resolve(__dirname, 'src/plugins/undo/index.ts'),
+	'plugins/redo': resolve(__dirname, 'src/plugins/redo/index.ts'),
 };
 
 const analyzePlugins: VitePlugin[] = [];

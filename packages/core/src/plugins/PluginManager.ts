@@ -40,6 +40,7 @@ import { RegistrationTracker } from './RegistrationTracker.js';
 import { ServiceRegistry } from './ServiceRegistry.js';
 import { BlockTypePickerRegistry } from './heading/BlockTypePickerRegistry.js';
 import { ToolbarRegistry } from './toolbar/ToolbarRegistry.js';
+import { EditorView } from '../view/EditorView.js';
 
 export type { MiddlewareInfo } from './MiddlewareChain.js';
 export type { PasteInterceptorEntry } from '../model/PasteInterceptor.js';
@@ -61,7 +62,7 @@ export interface PluginManagerOptions {
 
 export interface PluginManagerInitOptions {
 	getState(): EditorState;
-	getHistory(): HistoryManager;
+	getView(): EditorView | null;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;
@@ -285,7 +286,7 @@ export class PluginManager {
 			pluginId,
 			logger: this.logger,
 			getState: options.getState,
-			getHistory: options.getHistory,
+			getView: options.getView,
 			dispatch: options.dispatch,
 			getContainer: options.getContainer,
 			getPluginContainer: options.getPluginContainer,

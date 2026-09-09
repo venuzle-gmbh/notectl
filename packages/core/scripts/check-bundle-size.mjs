@@ -53,6 +53,8 @@ const ENTRY_BUDGETS = [
 	['Plugin: Text Direction', 'src/plugins/text-direction/index.ts', 4],
 	['Plugin: Bidi Isolation', 'src/plugins/bidi-isolation/index.ts', 2.5],
 	['Plugin: Text Direction Auto', 'src/plugins/text-direction-auto/index.ts', 2.5],
+	['Plugin: Undo', 'src/plugins/undo/index.ts', 2.5],
+	['Plugin: Redo', 'src/plugins/redo/index.ts', 2.5],
 	['Full (kitchen sink)', 'src/full.ts', 800],
 ];
 

@@ -179,6 +179,14 @@
 		"./plugins/text-direction-auto": {
 			"types": "./dist/plugins/text-direction-auto/index.d.ts",
 			"import": "./dist/plugins/text-direction-auto.mjs"
+		},
+		"./plugins/undo": {
+			"types": "./dist/plugins/undo/index.d.ts",
+			"import": "./dist/plugins/undo.mjs"
+		},
+		"./plugins/redo": {
+			"types": "./dist/plugins/redo/index.d.ts",
+			"import": "./dist/plugins/redo.mjs"
 		}
 	},
 	"customElements": "custom-elements.json",
