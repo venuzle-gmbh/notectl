@@ -3,7 +3,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideNotectl } from '@notectl/angular';
+import { provideNotectl } from '@venuzle/notectl-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [

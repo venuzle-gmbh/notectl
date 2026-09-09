@@ -5,7 +5,7 @@ import { expect, test } from './fixtures/editor-page';
  * content is round-tripped through setJSON after every keystroke —
  * the exact flow that Angular signal forms trigger.
  *
- * @see https://github.com/Samyssmile/notectl/issues/103
+ * @see https://github.com/venuzle-gmbh/notectl/issues/103
  */
 test.describe('Signal Form Cursor Reset (#103)', () => {
 	test('cursor stays in place when setJSON round-trips unchanged content', async ({

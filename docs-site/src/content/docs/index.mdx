@@ -16,7 +16,7 @@ hero:
       icon: right-arrow
       variant: secondary
     - text: View on GitHub
-      link: https://github.com/samyssmile/notectl
+      link: https://github.com/venuzle-gmbh/notectl
       icon: external
       variant: minimal
 ---
@@ -34,7 +34,7 @@ Most rich text editors force you into their world. notectl works in yours. Ship 
 
 <CardGrid>
 	<Card title="One tag. Any framework." icon="laptop">
-		`<notectl-editor>` is a native custom element. No React bindings, no Vue wrappers needed. Framework-agnostic core with optional Angular bindings via `@notectl/angular`. Import it, drop it in, done. Framework upgrades never break your editor.
+		`<notectl-editor>` is a native custom element. No React bindings, no Vue wrappers needed. Framework-agnostic core with optional Angular bindings via `@venuzle/notectl-angular`. Import it, drop it in, done. Framework upgrades never break your editor.
 	</Card>
 	<Card title="Only ship what you use" icon="puzzle">
 		Every feature is a plugin. Bold, tables, fonts, checklists — compose exactly the editor you need. Your bundle stays lean, your users stay happy.
@@ -52,7 +52,7 @@ Most rich text editors force you into their world. notectl works in yours. Ship 
 <Tabs>
 	<TabItem label="Minimal Setup">
 		```ts
-		import { createEditor } from '@notectl/core';
+		import { createEditor } from '@venuzle/notectl';
 
 		const editor = await createEditor({
 		  placeholder: 'Start typing...',
@@ -62,8 +62,8 @@ Most rich text editors force you into their world. notectl works in yours. Ship 
 	</TabItem>
 	<TabItem label="Full Preset">
 		```ts
-		import { createEditor, ThemePreset } from '@notectl/core';
-		import { createFullPreset } from '@notectl/core/presets';
+		import { createEditor, ThemePreset } from '@venuzle/notectl';
+		import { createFullPreset } from '@venuzle/notectl/presets';
 
 		const editor = await createEditor({
 		  ...createFullPreset(),
@@ -75,12 +75,12 @@ Most rich text editors force you into their world. notectl works in yours. Ship 
 	</TabItem>
 	<TabItem label="Custom Toolbar">
 		```ts
-		import { createEditor } from '@notectl/core';
-		import { TextFormattingPlugin } from '@notectl/core/plugins/text-formatting';
-		import { HeadingPlugin } from '@notectl/core/plugins/heading';
-		import { ListPlugin } from '@notectl/core/plugins/list';
-		import { LinkPlugin } from '@notectl/core/plugins/link';
-		import { TablePlugin } from '@notectl/core/plugins/table';
+		import { createEditor } from '@venuzle/notectl';
+		import { TextFormattingPlugin } from '@venuzle/notectl/plugins/text-formatting';
+		import { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
+		import { ListPlugin } from '@venuzle/notectl/plugins/list';
+		import { LinkPlugin } from '@venuzle/notectl/plugins/link';
+		import { TablePlugin } from '@venuzle/notectl/plugins/table';
 
 		const editor = await createEditor({
 		  toolbar: [

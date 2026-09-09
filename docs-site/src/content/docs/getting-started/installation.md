@@ -9,16 +9,16 @@ Install the core package with your preferred package manager:
 
 ```bash
 # npm
-npm install @notectl/core
+npm install @venuzle/notectl
 
 # pnpm
-pnpm add @notectl/core
+pnpm add @venuzle/notectl
 
 # yarn
-yarn add @notectl/core
+yarn add @venuzle/notectl
 
 # bun
-bun add @notectl/core
+bun add @venuzle/notectl
 ```
 
 ## Requirements
@@ -29,7 +29,7 @@ bun add @notectl/core
 
 ## What's Included
 
-The `@notectl/core` package includes:
+The `@venuzle/notectl` package includes:
 
 - The `<notectl-editor>` Web Component
 - All 26 built-in plugins (text formatting, headings, lists, tables, fonts, etc.)
@@ -45,7 +45,7 @@ notectl ships as standard ESM. It works out of the box with modern bundlers:
 No extra configuration needed:
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 ```
 
 ### Webpack 5
@@ -67,7 +67,7 @@ You can use notectl directly from a CDN for prototyping:
 
 ```html
 <script type="module">
-  import { createEditor } from 'https://esm.sh/@notectl/core';
+  import { createEditor } from 'https://esm.sh/@venuzle/notectl';
 
   const editor = await createEditor({
     placeholder: 'Start typing...',

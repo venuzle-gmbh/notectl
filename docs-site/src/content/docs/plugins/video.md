@@ -10,7 +10,7 @@ The `VideoPlugin` embeds hosted videos as selectable, void blocks rendered behin
 ## Usage
 
 ```ts
-import { VideoPlugin } from '@notectl/core/plugins/video';
+import { VideoPlugin } from '@venuzle/notectl/plugins/video';
 
 new VideoPlugin()
 // or with custom config:
@@ -81,8 +81,8 @@ interface VideoKeymap {
 A `VideoProvider` is a plain object. Adding a new provider requires only one configuration object:
 
 ```ts
-import { VideoPlugin, DEFAULT_VIDEO_PROVIDERS } from '@notectl/core/plugins/video';
-import type { VideoProvider } from '@notectl/core/plugins/video';
+import { VideoPlugin, DEFAULT_VIDEO_PROVIDERS } from '@venuzle/notectl/plugins/video';
+import type { VideoProvider } from '@venuzle/notectl/plugins/video';
 
 const peerTubeProvider: VideoProvider = {
   id: 'peertube',
@@ -292,7 +292,7 @@ Nine locales ship out of the box: `en`, `de`, `es`, `fr`, `zh`, `ru`, `ar`, `hi`
 To use a specific locale, import the English default and pass a dynamically loaded locale:
 
 ```ts
-import { VideoPlugin, loadVideoLocale } from '@notectl/core/plugins/video';
+import { VideoPlugin, loadVideoLocale } from '@venuzle/notectl/plugins/video';
 
 // Load a locale by browser tag (falls back to en automatically):
 const locale = await loadVideoLocale('de');

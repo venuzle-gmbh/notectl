@@ -22,7 +22,7 @@ import {
   createDocument, createBlockNode, createTextNode,
   createInlineNode, createEmptyParagraph,
   nodeType, inlineType,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // Empty document (single empty paragraph)
 const doc = createDocument();
@@ -157,7 +157,7 @@ interface TextNode {
 ### TextNode Factory
 
 ```ts
-import { createTextNode, markType } from '@notectl/core';
+import { createTextNode, markType } from '@venuzle/notectl';
 
 // Plain text
 const text = createTextNode('hello');
@@ -188,7 +188,7 @@ interface InlineNode {
 ### InlineNode Factory
 
 ```ts
-import { createInlineNode, inlineType } from '@notectl/core';
+import { createInlineNode, inlineType } from '@venuzle/notectl';
 
 const br = createInlineNode(inlineType('hard_break'));
 const emoji = createInlineNode(inlineType('emoji'), { name: 'rocket' });
@@ -253,7 +253,7 @@ import {
   normalizeInlineContent,
   walkInlineContent,
   blockOffsetToTextOffset,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 ```
 
 | Function | Signature | Description |
@@ -284,7 +284,7 @@ import {
   isInlineNode,
   isBlockNode,
   isLeafBlock,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 const text = getBlockText(block);              // "Hello World"
 const len = getBlockLength(block);             // 11 (InlineNodes count as 1)
@@ -302,7 +302,7 @@ const mixed = getBlockContentSegmentsInRange(block, 0, 5);     // ContentSegment
 ### Mark Operations
 
 ```ts
-import { hasMark, markSetsEqual, markType } from '@notectl/core';
+import { hasMark, markSetsEqual, markType } from '@venuzle/notectl';
 
 hasMark(marks, markType('bold'));           // boolean
 markSetsEqual(marks1, marks2);             // boolean
@@ -318,7 +318,7 @@ import {
   findNode,
   findNodeWithPath,
   walkNodes,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 const node = resolveNodeByPath(doc, path);          // BlockNode | undefined
 const { parent, index } = resolveParentByPath(doc, path);
@@ -334,7 +334,7 @@ walkNodes(doc, (block, path) => { /* DFS visitor */ });
 import {
   isNodeOfType, isMarkOfType, isInlineNodeOfType,
   isTextNode, isInlineNode, isBlockNode,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // These type guards require module augmentation of the attribute registries.
 // Plugins like HeadingPlugin, LinkPlugin, and HardBreakPlugin augment the
@@ -361,7 +361,7 @@ notectl uses branded types for compile-time safety:
 import {
   blockId, nodeType, markType, inlineType,
   pluginId, commandName,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 const id = blockId('abc123');            // BlockId
 const nt = nodeType('paragraph');        // NodeTypeName

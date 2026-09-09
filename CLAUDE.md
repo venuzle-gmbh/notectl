@@ -13,8 +13,8 @@ pnpm build
 
 # Unit tests (vitest + happy-dom)
 pnpm test                          # all tests
-pnpm --filter @notectl/core test -- Document.test.ts   # single file
-pnpm --filter @notectl/core test:watch                 # watch mode
+pnpm --filter @venuzle/notectl test -- Document.test.ts   # single file
+pnpm --filter @venuzle/notectl test:watch                 # watch mode
 
 # E2E tests (playwright, needs build first)
 pnpm test:e2e                      # all e2e

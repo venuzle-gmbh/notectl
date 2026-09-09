@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import type { Document } from '@notectl/core';
+import type { Document } from '@venuzle/notectl';
 
 import { readEditorValue, writeEditorValue } from './value-interop.js';
 

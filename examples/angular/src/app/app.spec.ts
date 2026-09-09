@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { TestBed } from '@angular/core/testing';
-import { NotectlEditorComponent, type Plugin } from '@notectl/angular';
-import { EditorInitializationAbortedError } from '@notectl/core';
+import { NotectlEditorComponent, type Plugin } from '@venuzle/notectl-angular';
+import { EditorInitializationAbortedError } from '@venuzle/notectl';
 import { App } from './app';
 
 const INIT_FAILURE = new Error('Angular editor initialization failed');

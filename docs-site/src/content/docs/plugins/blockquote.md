@@ -26,7 +26,7 @@ Because a blockquote holds blocks, its text lives one level deeper than a plain 
 ## Usage
 
 ```ts
-import { BlockquotePlugin } from '@notectl/core/plugins/blockquote';
+import { BlockquotePlugin } from '@venuzle/notectl/plugins/blockquote';
 
 new BlockquotePlugin()
 ```

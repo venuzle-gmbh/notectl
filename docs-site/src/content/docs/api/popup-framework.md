@@ -12,7 +12,7 @@ The `PopupManager` is the central lifecycle manager. It is registered as a servi
 ### Accessing the Service
 
 ```ts
-import { PopupServiceKey } from '@notectl/core/plugins/shared';
+import { PopupServiceKey } from '@venuzle/notectl/plugins/shared';
 
 const popups = context.getService(PopupServiceKey);
 ```
@@ -130,7 +130,7 @@ Closing a parent popup automatically closes all its children.
 Positions a popup element relative to an anchor rectangle using fixed positioning. Automatically clamps to viewport edges.
 
 ```ts
-import { positionPopup } from '@notectl/core/plugins/shared';
+import { positionPopup } from '@venuzle/notectl/plugins/shared';
 
 positionPopup(popupElement, anchorRect, {
   position: 'below-start',
@@ -163,7 +163,7 @@ interface PositionOptions {
 Appends an element to the appropriate root node. If the reference node lives inside a shadow root, the element is appended there; otherwise it is appended to `document.body`.
 
 ```ts
-import { appendToRoot } from '@notectl/core/plugins/shared';
+import { appendToRoot } from '@venuzle/notectl/plugins/shared';
 
 appendToRoot(myElement, context.getContainer());
 ```
@@ -177,7 +177,7 @@ Three WAI-ARIA keyboard navigation patterns are available for popup content. Eac
 Implements the [WAI-ARIA Menu pattern](https://www.w3.org/WAI/ARIA/apd/patterns/menu/) with roving tabindex.
 
 ```ts
-import { attachMenuKeyboard } from '@notectl/core/plugins/shared';
+import { attachMenuKeyboard } from '@venuzle/notectl/plugins/shared';
 
 const cleanup = attachMenuKeyboard({
   container: menuElement,
@@ -202,7 +202,7 @@ const cleanup = attachMenuKeyboard({
 Implements the [WAI-ARIA Listbox pattern](https://www.w3.org/WAI/ARIA/apd/patterns/listbox/).
 
 ```ts
-import { attachListboxKeyboard } from '@notectl/core/plugins/shared';
+import { attachListboxKeyboard } from '@venuzle/notectl/plugins/shared';
 
 const cleanup = attachListboxKeyboard({
   container: listElement,
@@ -224,7 +224,7 @@ const cleanup = attachListboxKeyboard({
 Implements the [WAI-ARIA Grid pattern](https://www.w3.org/WAI/ARIA/apd/patterns/grid/) with 2D arrow navigation.
 
 ```ts
-import { attachGridKeyboard } from '@notectl/core/plugins/shared';
+import { attachGridKeyboard } from '@venuzle/notectl/plugins/shared';
 
 const cleanup = attachGridKeyboard({
   container: gridElement,
@@ -255,7 +255,7 @@ const cleanup = attachGridKeyboard({
 Renders an accessible color picker grid with `role="grid"` semantics, full keyboard navigation, and active-color indication. Used internally by TextColorPlugin, HighlightPlugin, and table border color pickers.
 
 ```ts
-import { renderColorGrid } from '@notectl/core/plugins/shared';
+import { renderColorGrid } from '@venuzle/notectl/plugins/shared';
 
 renderColorGrid(container, {
   colors: ['#000000', '#FF0000', '#00FF00', '#0000FF'],
@@ -323,5 +323,5 @@ import {
   // Color grid
   renderColorGrid,
   type ColorGridConfig,
-} from '@notectl/core/plugins/shared';
+} from '@venuzle/notectl/plugins/shared';
 ```

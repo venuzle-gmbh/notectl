@@ -25,7 +25,7 @@ notectl ships with built-in support for 9 languages. All user-facing strings in 
 Set the editor language via the `locale` config option. All plugins automatically resolve their strings from this setting.
 
 ```ts
-import { createEditor, Locale } from '@notectl/core';
+import { createEditor, Locale } from '@venuzle/notectl';
 
 const editor = await createEditor({
   locale: Locale.DE,
@@ -46,8 +46,8 @@ When set to `Locale.BROWSER` (the default), the editor detects the language from
 Every plugin that renders user-facing text accepts an optional `locale` config parameter. This allows overriding the global locale for a specific plugin.
 
 ```ts
-import { createEditor, Locale } from '@notectl/core';
-import { TablePlugin, loadTableLocale } from '@notectl/core/plugins/table';
+import { createEditor, Locale } from '@venuzle/notectl';
+import { TablePlugin, loadTableLocale } from '@venuzle/notectl/plugins/table';
 
 // Load French locale for the table plugin
 const tableFr = await loadTableLocale('fr');
@@ -74,7 +74,7 @@ Plugins resolve their locale in this order:
 Every plugin exports an async `loadXxxLocale(lang)` function that loads translation data on demand. This keeps locale data out of the main bundle — only the requested language is fetched at runtime.
 
 ```ts
-import { loadTableLocale } from '@notectl/core/plugins/table';
+import { loadTableLocale } from '@venuzle/notectl/plugins/table';
 
 // Load German table strings (async, code-split)
 const deLocale = await loadTableLocale('de');
@@ -115,7 +115,7 @@ const fallback = await loadTableLocale('unknown'); // → English
 You can provide a fully custom locale by implementing the plugin's locale interface:
 
 ```ts
-import type { TableLocale } from '@notectl/core/plugins/table';
+import type { TableLocale } from '@venuzle/notectl/plugins/table';
 
 const myTableLocale: TableLocale = {
   insertRowAbove: 'Add row above',

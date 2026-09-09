@@ -6,7 +6,7 @@ description: Pure functions for text editing, mark toggling, deletion, cursor mo
 Commands are pure functions that take an `EditorState` and return a `Transaction` (or `null` if the command cannot be applied). They never mutate state or touch the DOM directly.
 
 ```ts
-import { insertTextCommand, toggleBold } from '@notectl/core';
+import { insertTextCommand, toggleBold } from '@venuzle/notectl';
 
 const tr = insertTextCommand(state, 'Hello');
 if (tr) editor.dispatch(tr);

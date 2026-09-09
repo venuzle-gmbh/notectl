@@ -10,7 +10,7 @@ For inline `<bdi>` isolation see [Bidi Isolation](/notectl/plugins/bidi-isolatio
 ## Usage
 
 ```ts
-import { TextDirectionPlugin } from '@notectl/core/plugins/text-direction';
+import { TextDirectionPlugin } from '@venuzle/notectl/plugins/text-direction';
 
 new TextDirectionPlugin();
 new TextDirectionPlugin({ directableTypes: ['paragraph', 'heading'] });

@@ -10,7 +10,7 @@ The `InlineCodePlugin` adds inline `<code>` formatting for marking up code snipp
 ## Usage
 
 ```ts
-import { InlineCodePlugin } from '@notectl/core/plugins/inline-code';
+import { InlineCodePlugin } from '@venuzle/notectl/plugins/inline-code';
 
 new InlineCodePlugin()
 ```
@@ -163,7 +163,7 @@ The inline code button (`</>` icon) renders in the **format** toolbar group with
 8 locales are bundled: English (default), German, Spanish, French, Chinese, Russian, Arabic, Hindi, and Portuguese. Locales are lazy-loaded based on the editor's language setting.
 
 ```ts
-import type { InlineCodeLocale } from '@notectl/core/plugins/inline-code';
+import type { InlineCodeLocale } from '@venuzle/notectl/plugins/inline-code';
 
 const customLocale: InlineCodeLocale = {
   label: 'Code',

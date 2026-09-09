@@ -31,7 +31,7 @@ By default, the editor uses a **fluid layout** that fills its container. When yo
 ### At Creation
 
 ```ts
-import { createEditor, PaperSize } from '@notectl/core';
+import { createEditor, PaperSize } from '@venuzle/notectl';
 
 const editor = await createEditor({
   paperSize: PaperSize.DINA4,
@@ -75,8 +75,8 @@ Paper mode is designed to work seamlessly with the [Print Plugin](/notectl/plugi
 This ensures that line breaks, text flow, and page layout are identical between the editor and the printed document.
 
 ```ts
-import { createEditor, PaperSize } from '@notectl/core';
-import { PrintPlugin } from '@notectl/core/plugins/print';
+import { createEditor, PaperSize } from '@venuzle/notectl';
+import { PrintPlugin } from '@venuzle/notectl/plugins/print';
 
 const editor = await createEditor({
   paperSize: PaperSize.DINA4,
@@ -93,7 +93,7 @@ editor.executeCommand('print');
 You can also override the paper size for a specific print call:
 
 ```ts
-import { PRINT_SERVICE_KEY } from '@notectl/core/plugins/print';
+import { PRINT_SERVICE_KEY } from '@venuzle/notectl/plugins/print';
 
 const printService = editor.getService(PRINT_SERVICE_KEY);
 printService.print({ paperSize: PaperSize.USLetter });
@@ -109,11 +109,11 @@ The paper mode uses fixed margins for consistent WYSIWYG layout:
 | `PAPER_MARGIN_HORIZONTAL_PX` | `56px` | Left and right margins inside the paper surface |
 | `PAPER_VIEWPORT_PADDING_PX` | `24px` | Padding between the viewport edge and the paper |
 
-These are exported from `@notectl/core` for use in custom layouts or print stylesheets.
+These are exported from `@venuzle/notectl` for use in custom layouts or print stylesheets.
 
 ## Exports
 
-All paper-size-related exports from `@notectl/core`:
+All paper-size-related exports from `@venuzle/notectl`:
 
 | Export | Kind | Description |
 |--------|------|-------------|

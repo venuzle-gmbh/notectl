@@ -70,7 +70,7 @@ export interface FormulaPluginConfig {
 	/**
 	 * Optional OpenType MATH font, registered as `@font-face` for correct
 	 * stretchy rendering in Chromium. Import `NOTECTL_MATH_FONT` from
-	 * `@notectl/core/fonts/math`. Opt-in to keep the font payload out of the bundle.
+	 * `@venuzle/notectl/fonts/math`. Opt-in to keep the font payload out of the bundle.
 	 */
 	readonly mathFont?: FontDefinition;
 }

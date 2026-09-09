@@ -1,5 +1,5 @@
 import { type EnvironmentProviders, InjectionToken, makeEnvironmentProviders } from '@angular/core';
-import type { NotectlEditorConfig } from '@notectl/core';
+import type { NotectlEditorConfig } from '@venuzle/notectl';
 
 /**
  * Default configuration applied to all `<notectl-editor>` instances within

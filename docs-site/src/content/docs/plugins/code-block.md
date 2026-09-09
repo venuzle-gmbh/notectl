@@ -8,7 +8,7 @@ The `CodeBlockPlugin` adds fenced code blocks with a non-editable header (langua
 ## Usage
 
 ```ts
-import { CodeBlockPlugin } from '@notectl/core/plugins/code-block';
+import { CodeBlockPlugin } from '@venuzle/notectl/plugins/code-block';
 
 // Default (dark theme)
 new CodeBlockPlugin()
@@ -307,7 +307,7 @@ The code block button appears in the **block** toolbar group with the `</>` icon
 The plugin registers a typed service for programmatic access:
 
 ```ts
-import { CODE_BLOCK_SERVICE_KEY } from '@notectl/core/plugins/code-block';
+import { CODE_BLOCK_SERVICE_KEY } from '@venuzle/notectl/plugins/code-block';
 
 const service = context.getService(CODE_BLOCK_SERVICE_KEY);
 
@@ -345,7 +345,7 @@ The semantic distinction matters for theming: XML tag names use `--notectl-code-
 Use the `SYNTAX_HIGHLIGHTER_SERVICE_KEY` service to register additional language definitions without replacing the whole highlighter:
 
 ```ts
-import { SYNTAX_HIGHLIGHTER_SERVICE_KEY } from '@notectl/core/plugins/code-block';
+import { SYNTAX_HIGHLIGHTER_SERVICE_KEY } from '@venuzle/notectl/plugins/code-block';
 
 const highlighterService = editor.getService(SYNTAX_HIGHLIGHTER_SERVICE_KEY);
 highlighterService.registerLanguage(myLanguageDefinition);
@@ -357,7 +357,7 @@ highlighterService.getSupportedLanguages(); // ['json', 'xml', ...]
 Provide a full `SyntaxHighlighter` implementation to replace the built-in tokenizer:
 
 ```ts
-import type { SyntaxTokenType } from '@notectl/core';
+import type { SyntaxTokenType } from '@venuzle/notectl';
 
 interface SyntaxHighlighter {
   tokenize(code: string, language: string): readonly SyntaxToken[];
@@ -376,7 +376,7 @@ interface SyntaxToken {
 }
 ```
 
-The 16 valid `type` values are: `keyword`, `string`, `comment`, `number`, `function`, `operator`, `punctuation`, `boolean`, `null`, `property`, `type`, `annotation`, `tag`, `attribute`, `constant`, `regex`. These are exported as the `SYNTAX_TOKEN_TYPES` tuple from `@notectl/core`.
+The 16 valid `type` values are: `keyword`, `string`, `comment`, `number`, `function`, `operator`, `punctuation`, `boolean`, `null`, `property`, `type`, `annotation`, `tag`, `attribute`, `constant`, `regex`. These are exported as the `SYNTAX_TOKEN_TYPES` tuple from `@venuzle/notectl`.
 
 ### Token Styling
 

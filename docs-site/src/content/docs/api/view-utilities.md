@@ -14,7 +14,7 @@ Functions for navigating the cursor using DOM-based caret positioning.
 Returns `true` if the caret is at the edge of a text block in the given direction. Used to determine when to cross block boundaries.
 
 ```ts
-import { endOfTextblock } from '@notectl/core';
+import { endOfTextblock } from '@venuzle/notectl';
 
 const atEnd: boolean = endOfTextblock(container, state, 'right');
 ```
@@ -33,7 +33,7 @@ const atEnd: boolean = endOfTextblock(container, state, 'right');
 Moves the cursor to the adjacent block when at a block boundary:
 
 ```ts
-import { navigateAcrossBlocks } from '@notectl/core';
+import { navigateAcrossBlocks } from '@venuzle/notectl';
 
 const tr = navigateAcrossBlocks(state, 'down');
 ```
@@ -43,7 +43,7 @@ const tr = navigateAcrossBlocks(state, 'down');
 Vertical navigation with goal column preservation (standard behavior for up/down arrow keys):
 
 ```ts
-import { navigateVerticalWithGoalColumn } from '@notectl/core';
+import { navigateVerticalWithGoalColumn } from '@venuzle/notectl';
 
 const tr = navigateVerticalWithGoalColumn(container, state, 'up', goalColumn);
 ```
@@ -53,7 +53,7 @@ const tr = navigateVerticalWithGoalColumn(container, state, 'up', goalColumn);
 Skips over an inline node (width-1 in offset space) when the cursor is adjacent to one:
 
 ```ts
-import { skipInlineNode } from '@notectl/core';
+import { skipInlineNode } from '@venuzle/notectl';
 
 const tr = skipInlineNode(state, 'right');
 ```
@@ -63,7 +63,7 @@ const tr = skipInlineNode(state, 'right');
 Navigates from a gap cursor position to the nearest editable block:
 
 ```ts
-import { navigateFromGapCursor } from '@notectl/core';
+import { navigateFromGapCursor } from '@venuzle/notectl';
 
 const tr = navigateFromGapCursor(state, 'down', container);
 ```
@@ -73,7 +73,7 @@ const tr = navigateFromGapCursor(state, 'down', container);
 Returns the bounding rect of the current DOM selection's caret, or `null` if unavailable:
 
 ```ts
-import { getCaretRectFromSelection } from '@notectl/core';
+import { getCaretRectFromSelection } from '@venuzle/notectl';
 
 const rect: DOMRect | null = getCaretRectFromSelection(window.getSelection()!);
 // With optional container for scoped lookups:
@@ -150,7 +150,7 @@ context.registerNodeView('code_block', (node, getState, dispatch) => {
 Stores `NodeViewFactory` registrations.
 
 ```ts
-import { NodeViewRegistry } from '@notectl/core';
+import { NodeViewRegistry } from '@venuzle/notectl';
 
 const registry = new NodeViewRegistry();
 ```
@@ -171,7 +171,7 @@ const registry = new NodeViewRegistry();
 Manages cursor display during IME composition, ensuring the cursor remains visible and correctly positioned.
 
 ```ts
-import { CursorWrapper } from '@notectl/core';
+import { CursorWrapper } from '@venuzle/notectl';
 
 const wrapper = new CursorWrapper(container, schemaRegistry);
 ```
@@ -196,7 +196,7 @@ const wrapper = new CursorWrapper(container, schemaRegistry);
 Utility functions for detecting the current platform and text direction.
 
 ```ts
-import { isMac, isFirefox, isWebKit, getTextDirection, isRtlContext } from '@notectl/core';
+import { isMac, isFirefox, isWebKit, getTextDirection, isRtlContext } from '@venuzle/notectl';
 ```
 
 | Function | Return Type | Description |
@@ -218,7 +218,7 @@ Utilities for injecting CSS styles into the document or shadow DOM. Used by plug
 Injects CSS into the document via a `<style>` element:
 
 ```ts
-import { injectContentStyles } from '@notectl/core';
+import { injectContentStyles } from '@venuzle/notectl';
 
 const styleEl = injectContentStyles('.highlight { background: yellow }', {
   id: 'my-plugin-styles',
@@ -242,7 +242,7 @@ interface InjectStylesOptions {
 Removes a previously injected `<style>` element by its `id`:
 
 ```ts
-import { removeContentStyles } from '@notectl/core';
+import { removeContentStyles } from '@venuzle/notectl';
 
 removeContentStyles('my-plugin-styles');
 ```
@@ -252,7 +252,7 @@ removeContentStyles('my-plugin-styles');
 Creates and adopts a `CSSStyleSheet` (for shadow DOM):
 
 ```ts
-import { adoptContentStyles } from '@notectl/core';
+import { adoptContentStyles } from '@venuzle/notectl';
 
 const sheet = adoptContentStyles('.highlight { background: yellow }', {
   target: shadowRoot,
@@ -273,7 +273,7 @@ interface AdoptStylesOptions {
 Removes a previously adopted stylesheet:
 
 ```ts
-import { removeAdoptedStyles } from '@notectl/core';
+import { removeAdoptedStyles } from '@venuzle/notectl';
 
 removeAdoptedStyles(sheet, shadowRoot);
 ```

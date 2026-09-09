@@ -44,7 +44,7 @@ For use outside the web component (server-side rendering, build tools, data pipe
 import {
   serializeDocumentToMarkdown,
   parseMarkdownToDocument,
-} from '@notectl/core/markdown';
+} from '@venuzle/notectl/markdown';
 
 // Synchronous — no dynamic import overhead
 const md: string = serializeDocumentToMarkdown(doc);
@@ -84,7 +84,7 @@ notectl's *implicit* Markdown behaviour is controlled by a single `markdown` opt
 Some users want their input to stay literal, so that typing `# Hello` or `**bold**` keeps the characters verbatim instead of transforming. Pass `markdown: false`:
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 // Literal mode: typed and pasted Markdown stays as plain text
 const editor = await createEditor({
@@ -120,7 +120,7 @@ This option only affects *automatic* interpretation. The explicit [`getContentMa
 When `markdown` shorthand is enabled, you can still disable individual shorthands at the plugin level via each plugin's `inputRule` option. This is useful to keep most shorthands while turning off one or two:
 
 ```ts
-import { HeadingPlugin, ListPlugin, BlockquotePlugin } from '@notectl/core';
+import { HeadingPlugin, ListPlugin, BlockquotePlugin } from '@venuzle/notectl';
 
 // Headings via `# ` stay on; list and quote shorthands are off
 new ListPlugin({ inputRule: false });
@@ -291,7 +291,7 @@ await editor.setContentMarkdown(source);
 ### Server-side rendering
 
 ```ts
-import { serializeDocumentToMarkdown } from '@notectl/core/markdown';
+import { serializeDocumentToMarkdown } from '@venuzle/notectl/markdown';
 
 // Synchronous — no dynamic import, safe in a Node build step
 const md: string = serializeDocumentToMarkdown(doc, registry);
@@ -300,7 +300,7 @@ const md: string = serializeDocumentToMarkdown(doc, registry);
 ### Standalone parse in a build tool
 
 ```ts
-import { parseMarkdownToDocument } from '@notectl/core/markdown';
+import { parseMarkdownToDocument } from '@venuzle/notectl/markdown';
 
 const doc = parseMarkdownToDocument(markdownSource, registry, {
   extendedInlineSyntax: true, // accept ==highlight==, ^sup^, ~sub~
@@ -310,7 +310,7 @@ const doc = parseMarkdownToDocument(markdownSource, registry, {
 ### Disable Markdown paste for a plain-text field
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 const editor = await createEditor({
   markdown: { paste: 'never' },
@@ -321,7 +321,7 @@ const editor = await createEditor({
 ### Literal mode: no shorthand transforms at all
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 // `# Hello` and `**bold**` stay as typed; nothing is auto-converted.
 const editor = await createEditor({

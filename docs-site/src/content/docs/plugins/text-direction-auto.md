@@ -10,8 +10,8 @@ It **requires** the [Text Direction](/notectl/plugins/text-direction/) plugin to
 ## Usage
 
 ```ts
-import { TextDirectionPlugin } from '@notectl/core/plugins/text-direction';
-import { TextDirectionAutoPlugin } from '@notectl/core/plugins/text-direction-auto';
+import { TextDirectionPlugin } from '@venuzle/notectl/plugins/text-direction';
+import { TextDirectionAutoPlugin } from '@venuzle/notectl/plugins/text-direction-auto';
 
 [
   new TextDirectionPlugin(),

@@ -8,8 +8,8 @@ The **GapCursorPlugin** provides a virtual cursor that appears at the boundary o
 ## Usage
 
 ```ts
-import { createEditor } from '@notectl/core';
-import { GapCursorPlugin } from '@notectl/core/plugins/gap-cursor';
+import { createEditor } from '@venuzle/notectl';
+import { GapCursorPlugin } from '@venuzle/notectl/plugins/gap-cursor';
 
 const editor = await createEditor({
   plugins: [new GapCursorPlugin()],

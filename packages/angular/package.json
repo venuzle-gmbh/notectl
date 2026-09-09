@@ -1,15 +1,19 @@
 {
-	"name": "@notectl/angular",
+	"name": "@venuzle/notectl-angular",
 	"version": "2.3.6",
 	"description": "Angular integration for the notectl rich text editor. Provides a standalone component, reactive forms support, and DI service.",
 	"license": "MIT",
 	"type": "module",
-	"main": "./dist/fesm2022/notectl-angular.mjs",
-	"module": "./dist/fesm2022/notectl-angular.mjs",
-	"types": "./dist/types/notectl-angular.d.ts",
-	"typings": "./dist/types/notectl-angular.d.ts",
+	"main": "./dist/fesm2022/venuzle-notectl-angular.mjs",
+	"module": "./dist/fesm2022/venuzle-notectl-angular.mjs",
+	"types": "./dist/types/venuzle-notectl-angular.d.ts",
+	"typings": "./dist/types/venuzle-notectl-angular.d.ts",
 	"sideEffects": false,
-	"files": ["dist", "README.md", "LICENSE"],
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
 	"keywords": [
 		"angular",
 		"rich-text-editor",
@@ -22,12 +26,12 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Samyssmile/notectl.git",
+		"url": "https://github.com/venuzle-gmbh/notectl.git",
 		"directory": "packages/angular"
 	},
-	"homepage": "https://github.com/Samyssmile/notectl",
+	"homepage": "https://github.com/venuzle-gmbh/notectl",
 	"bugs": {
-		"url": "https://github.com/Samyssmile/notectl/issues"
+		"url": "https://github.com/venuzle-gmbh/notectl/issues"
 	},
 	"scripts": {
 		"build": "ng-packagr -p ng-package.json",
@@ -43,7 +47,7 @@
 	"peerDependencies": {
 		"@angular/core": ">=21.0.0",
 		"@angular/forms": ">=21.0.0",
-		"@notectl/core": "^2.3.6",
+		"@venuzle/notectl": "^2.3.6",
 		"rxjs": ">=7.0.0"
 	},
 	"devDependencies": {
@@ -53,7 +57,7 @@
 		"@angular/forms": "^22.1.0",
 		"@angular/platform-browser": "^22.1.0",
 		"@angular/platform-browser-dynamic": "^22.1.0",
-		"@notectl/core": "workspace:*",
+		"@venuzle/notectl": "workspace:*",
 		"ng-packagr": "^22.1.1",
 		"rxjs": "~7.8.2",
 		"typescript": "^6.0.3",

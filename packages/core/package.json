@@ -1,5 +1,5 @@
 {
-	"name": "@notectl/core",
+	"name": "@venuzle/notectl",
 	"version": "2.3.6",
 	"description": "A modern and accessible rich text editor shipped as a single Web Component. Immutable state, transaction-based architecture, and a plugin system that powers every feature.",
 	"license": "MIT",
@@ -182,7 +182,13 @@
 		}
 	},
 	"customElements": "custom-elements.json",
-	"files": ["dist", "README.md", "LICENSE", "THIRD-PARTY-NOTICES.md", "custom-elements.json"],
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE",
+		"THIRD-PARTY-NOTICES.md",
+		"custom-elements.json"
+	],
 	"keywords": [
 		"rich-text-editor",
 		"web-component",
@@ -196,12 +202,12 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Samyssmile/notectl.git",
+		"url": "https://github.com/venuzle-gmbh/notectl.git",
 		"directory": "packages/core"
 	},
-	"homepage": "https://github.com/Samyssmile/notectl",
+	"homepage": "https://github.com/venuzle-gmbh/notectl",
 	"bugs": {
-		"url": "https://github.com/Samyssmile/notectl/issues"
+		"url": "https://github.com/venuzle-gmbh/notectl/issues"
 	},
 	"scripts": {
 		"build": "vite build && vite build --config vite.config.umd.ts",

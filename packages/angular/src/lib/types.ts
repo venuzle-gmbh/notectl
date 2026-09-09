@@ -1,4 +1,4 @@
-import type { Document, EditorSelection } from '@notectl/core';
+import type { Document, EditorSelection } from '@venuzle/notectl';
 
 /** Event payload emitted on selection changes. */
 export interface SelectionChangeEvent {

@@ -10,7 +10,7 @@ It is independent of the [Text Direction](/notectl/plugins/text-direction/) plug
 ## Usage
 
 ```ts
-import { BidiIsolationPlugin } from '@notectl/core/plugins/bidi-isolation';
+import { BidiIsolationPlugin } from '@venuzle/notectl/plugins/bidi-isolation';
 
 new BidiIsolationPlugin();
 ```

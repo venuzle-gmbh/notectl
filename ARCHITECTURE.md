@@ -292,7 +292,7 @@ Don't:
 
 The bundle system is based on modular entry points + subpath exports.
 
-### 8.1 Public Entry Points (`@notectl/core`)
+### 8.1 Public Entry Points (`@venuzle/notectl`)
 
 - `.` -> `notectl-core.mjs` (Core API)
 - `./full` -> Kitchen sink + UMD bridge
@@ -306,7 +306,7 @@ The bundle system is based on modular entry points + subpath exports.
 - No unnecessary imports of heavy modules in `src/index.ts`.
 - Use async `import()` for infrequent paths (e.g., HTML serializer/parser, auto-registration).
 - Place cross-plugin helpers in dedicated modules (`plugins/shared`), do not duplicate.
-- Consumers should primarily use subpath imports (`@notectl/core/plugins/...`, `@notectl/core/presets/...`).
+- Consumers should primarily use subpath imports (`@venuzle/notectl/plugins/...`, `@venuzle/notectl/presets/...`).
 
 ### 8.3 Mandatory Checklist for Adding a New Plugin
 

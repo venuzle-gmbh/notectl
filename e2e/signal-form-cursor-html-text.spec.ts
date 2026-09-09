@@ -11,7 +11,7 @@ import { expect, test } from './fixtures/editor-page';
  * fresh block IDs on every parse, so the previous cursor's blockId no longer
  * exists and `EditorState.validateSelection()` falls back to (first leaf, 0).
  *
- * @see https://github.com/Samyssmile/notectl/issues/103
+ * @see https://github.com/venuzle-gmbh/notectl/issues/103
  */
 test.describe('Signal Form Cursor Reset (#103) — html/text formats', () => {
 	test('html round-trip: cursor stays in place when setContentHTML round-trips unchanged content', async ({

@@ -10,7 +10,7 @@ description: The main editor Web Component API reference.
 ### Factory Function (Recommended)
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 const editor = await createEditor({
   placeholder: 'Start typing...',
@@ -77,7 +77,7 @@ degrades to a fallback instead of breaking the operation. The logger is the only
 failure becomes visible, including which plugin caused it.
 
 ```ts
-import { createEditor, silentLogger, type Logger } from '@notectl/core';
+import { createEditor, silentLogger, type Logger } from '@venuzle/notectl';
 
 // Route into your own telemetry pipeline
 const logger: Logger = {
@@ -108,8 +108,8 @@ interface ToolbarConfig {
 ```
 
 ```ts
-import { createEditor } from '@notectl/core';
-import { ToolbarOverflowBehavior } from '@notectl/core/plugins/toolbar';
+import { createEditor } from '@venuzle/notectl';
+import { ToolbarOverflowBehavior } from '@venuzle/notectl/plugins/toolbar';
 
 const editor = await createEditor({
   toolbar: {
@@ -371,7 +371,7 @@ Retrieves a typed service registered by any plugin. Returns `undefined` if not f
 import {
   TableSelectionServiceKey,
   TableSizingServiceKey,
-} from '@notectl/core/plugins/table';
+} from '@venuzle/notectl/plugins/table';
 
 const tableSelection = editor.getService(TableSelectionServiceKey);
 tableSelection?.getSelectedCellIds();
@@ -388,7 +388,7 @@ paths or table DOM access. See the [TableSizingService reference](/notectl/plugi
 Subscribes to typed plugin events from outside the plugin system. Returns an unsubscribe function.
 
 ```ts
-import { BEFORE_PRINT, AFTER_PRINT } from '@notectl/core/plugins/print';
+import { BEFORE_PRINT, AFTER_PRINT } from '@venuzle/notectl/plugins/print';
 
 const unsubscribe = editor.onPluginEvent(BEFORE_PRINT, () => {
   console.log('Printing...');
@@ -404,7 +404,7 @@ const unsubscribe = editor.onPluginEvent(BEFORE_PRINT, () => {
 Changes the theme at runtime. Accepts a preset string (`'light'`, `'dark'`, `'system'`) or a custom `Theme` object.
 
 ```ts
-import { ThemePreset } from '@notectl/core';
+import { ThemePreset } from '@venuzle/notectl';
 
 editor.setTheme(ThemePreset.Dark);
 editor.setTheme(myCustomTheme);
@@ -423,7 +423,7 @@ See the [Theming guide](/notectl/guides/styling/) for full details on presets, c
 Returns the currently configured paper size, or `undefined` if the editor uses fluid layout.
 
 ```ts
-import { PaperSize } from '@notectl/core';
+import { PaperSize } from '@venuzle/notectl';
 
 editor.configure({ paperSize: PaperSize.DINA4 });
 editor.getPaperSize(); // 'din-a4'
@@ -438,7 +438,7 @@ See the [Paper Size guide](/notectl/guides/paper-size/) for full details on WYSI
 Sets the editor language for all plugins. Defaults to `Locale.BROWSER` which auto-detects from `navigator.language`.
 
 ```ts
-import { createEditor, Locale } from '@notectl/core';
+import { createEditor, Locale } from '@venuzle/notectl';
 
 const editor = await createEditor({
   locale: Locale.DE,
@@ -455,7 +455,7 @@ See the [Internationalization guide](/notectl/guides/internationalization/) for 
 Controls notectl's *implicit* Markdown behavior: the live "shorthand" typing transforms (`# ` to heading, `**bold**` to bold, `- ` to list, and so on) and Markdown auto-detection on paste. Defaults to `true` (both on).
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 // Literal authoring: typed and pasted Markdown stays as plain text
 await createEditor({ markdown: false });
@@ -480,7 +480,7 @@ rejection handler in code paths that can unmount before initialization completes
 framework component whose lifecycle may tear down mid-mount:
 
 ```ts
-import { EditorInitializationAbortedError } from '@notectl/core';
+import { EditorInitializationAbortedError } from '@venuzle/notectl';
 
 try {
   await editor.whenReady();

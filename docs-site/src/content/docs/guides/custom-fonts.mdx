@@ -15,7 +15,7 @@ notectl's `FontPlugin` makes it easy to add custom fonts to your editor. It hand
 2. **Define a `FontDefinition`** with the font metadata and file sources:
 
    ```ts
-   import type { FontDefinition } from '@notectl/core/plugins/font';
+   import type { FontDefinition } from '@venuzle/notectl/plugins/font';
 
    const MY_FONT: FontDefinition = {
      name: 'Inter',
@@ -39,9 +39,9 @@ notectl's `FontPlugin` makes it easy to add custom fonts to your editor. It hand
 3. **Pass it to the FontPlugin**:
 
    ```ts
-   import { createEditor } from '@notectl/core';
-   import { FontPlugin } from '@notectl/core/plugins/font';
-   import { STARTER_FONTS } from '@notectl/core/fonts/starter';
+   import { createEditor } from '@venuzle/notectl';
+   import { FontPlugin } from '@venuzle/notectl/plugins/font';
+   import { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
 
    const editor = await createEditor({
      toolbar: [
@@ -85,7 +85,7 @@ interface FontFaceDescriptor {
 notectl ships with two embedded fonts that work without any font files:
 
 ```ts
-import { STARTER_FONTS, FIRA_CODE, FIRA_SANS } from '@notectl/core/fonts/starter';
+import { STARTER_FONTS, FIRA_CODE, FIRA_SANS } from '@venuzle/notectl/fonts/starter';
 
 // Use both starter fonts
 new FontPlugin({ fonts: [...STARTER_FONTS] })

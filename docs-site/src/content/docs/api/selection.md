@@ -65,7 +65,7 @@ type EditorSelection = Selection | NodeSelection | GapCursorSelection;
 Use type guards to distinguish:
 
 ```ts
-import { isNodeSelection, isTextSelection, isGapCursor } from '@notectl/core';
+import { isNodeSelection, isTextSelection, isGapCursor } from '@venuzle/notectl';
 
 if (isNodeSelection(sel)) {
   console.log('Selected node:', sel.nodeId);
@@ -85,7 +85,7 @@ import {
   createCollapsedSelection,
   createNodeSelection,
   createGapCursor,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // Cursor at offset 5 in a block
 const cursor = createCollapsedSelection(blockId('abc'), 5);
@@ -111,7 +111,7 @@ const gap = createGapCursor(blockId('hr-1'), 'before', []);
 ```ts
 import {
   isCollapsed, isForward, selectionRange, selectionsEqual,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // Is it a cursor (no range)? NodeSelection is never collapsed.
 isCollapsed(selection); // boolean

@@ -3,7 +3,7 @@ import type {
 	ContentCSSResult,
 	ContentHTMLOptions,
 	NotectlEditorComponent,
-} from '@notectl/angular';
+} from '@venuzle/notectl-angular';
 
 /**
  * Test harness for `NotectlEditorComponent` in consumer tests.
@@ -21,7 +21,7 @@ import type {
  * ```
  */
 export class NotectlTestHarness {
-	constructor(private readonly fixture: ComponentFixture<NotectlEditorComponent>) {}
+	constructor(private readonly fixture: ComponentFixture<NotectlEditorComponent>) { }
 
 	/** Returns the component instance. */
 	get component(): NotectlEditorComponent {

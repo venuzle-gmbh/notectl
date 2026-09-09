@@ -5,7 +5,7 @@
  * These functions only need a PluginManager + config — zero coupling to DOM.
  *
  * Static imports are used instead of dynamic `import()` to avoid
- * double-bundling issues when consumers re-bundle @notectl/core.
+ * double-bundling issues when consumers re-bundle @venuzle/notectl.
  */
 
 import type { Plugin } from '../plugins/Plugin.js';

@@ -10,8 +10,8 @@ Plugin presets are factory functions that return pre-configured plugin bundles. 
 `createFullPreset()` returns all standard plugins organized into 8 logical toolbar groups:
 
 ```ts
-import { createEditor, ThemePreset } from '@notectl/core';
-import { createFullPreset } from '@notectl/core/presets';
+import { createEditor, ThemePreset } from '@venuzle/notectl';
+import { createFullPreset } from '@venuzle/notectl/presets';
 
 const editor = await createEditor({
   ...createFullPreset(),
@@ -41,8 +41,8 @@ This gives you the same setup as manually configuring:
 `createMinimalPreset()` returns a lightweight editor with only font selection:
 
 ```ts
-import { createEditor } from '@notectl/core';
-import { createMinimalPreset } from '@notectl/core/presets';
+import { createEditor } from '@venuzle/notectl';
+import { createMinimalPreset } from '@venuzle/notectl/presets';
 
 const editor = await createEditor({
   ...createMinimalPreset(),
@@ -98,7 +98,7 @@ const editor = await createEditor({
 Presets return a `PresetConfig` object with `toolbar` and `plugins` arrays. You can extend them:
 
 ```ts
-import { createFullPreset } from '@notectl/core/presets';
+import { createFullPreset } from '@venuzle/notectl/presets';
 import { MyCustomPlugin } from './MyCustomPlugin';
 
 const preset = createFullPreset();

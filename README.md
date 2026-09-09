@@ -11,8 +11,8 @@ Build a real editor in plain HTML, React, Vue, Svelte, or Angular without lockin
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Web Component](https://img.shields.io/badge/Web_Component-%3Cnotectl--editor%3E-purple)](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/@notectl/core)](https://www.npmjs.com/package/@notectl/core)
-[![Bundle Size](https://img.shields.io/badge/gzip-~76kb_core-orange)](https://www.npmjs.com/package/@notectl/core)
+[![npm](https://img.shields.io/npm/v/@venuzle/notectl)](https://www.npmjs.com/package/@venuzle/notectl)
+[![Bundle Size](https://img.shields.io/badge/gzip-~76kb_core-orange)](https://www.npmjs.com/package/@venuzle/notectl)
 
 <br />
 
@@ -22,8 +22,8 @@ Build a real editor in plain HTML, React, Vue, Svelte, or Angular without lockin
 
 [Documentation](https://samyssmile.github.io/notectl/) &nbsp;&middot;&nbsp;
 [Playground](https://samyssmile.github.io/notectl/playground/) &nbsp;&middot;&nbsp;
-[npm: @notectl/core](https://www.npmjs.com/package/@notectl/core) &nbsp;&middot;&nbsp;
-[npm: @notectl/angular](https://www.npmjs.com/package/@notectl/angular)
+[npm: @venuzle/notectl](https://www.npmjs.com/package/@venuzle/notectl) &nbsp;&middot;&nbsp;
+[npm: @venuzle/notectl-angular](https://www.npmjs.com/package/@venuzle/notectl-angular)
 
 </div>
 
@@ -50,14 +50,14 @@ Because the editor is a Web Component, dropping it into an existing card, ticket
 ## Install
 
 ```bash
-npm install @notectl/core
+npm install @venuzle/notectl
 ```
 
 Requirements:
 
 - Modern browser with Custom Elements support
 - Node.js 18+ for build tooling
-- Angular 21+ if you use `@notectl/angular`
+- Angular 21+ if you use `@venuzle/notectl-angular`
 
 ## Quick start
 
@@ -76,8 +76,8 @@ Start with one of the shipped presets:
 Minimal preset:
 
 ```ts
-import { createEditor } from '@notectl/core';
-import { createMinimalPreset } from '@notectl/core/presets/minimal';
+import { createEditor } from '@venuzle/notectl';
+import { createMinimalPreset } from '@venuzle/notectl/presets/minimal';
 
 const editor = await createEditor({
   ...createMinimalPreset(),
@@ -91,10 +91,10 @@ document.getElementById('app')!.appendChild(editor);
 Full preset (toolbar, headings, lists, links, tables, code blocks, images, fonts, and more):
 
 ```ts
-import { ThemePreset, createEditor } from '@notectl/core';
-import { STARTER_FONTS } from '@notectl/core/fonts/starter';
-import { ToolbarOverflowBehavior } from '@notectl/core/plugins/toolbar';
-import { createFullPreset } from '@notectl/core/presets/full';
+import { ThemePreset, createEditor } from '@venuzle/notectl';
+import { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
+import { ToolbarOverflowBehavior } from '@venuzle/notectl/plugins/toolbar';
+import { createFullPreset } from '@venuzle/notectl/presets/full';
 
 const preset = createFullPreset({
   font: { fonts: STARTER_FONTS },
@@ -142,8 +142,8 @@ Use `createMinimalPreset()` when you want a lean starting point. Use `createFull
     <div id="app"></div>
 
     <script type="module">
-      import { createEditor } from '@notectl/core';
-      import { createMinimalPreset } from '@notectl/core/presets/minimal';
+      import { createEditor } from '@venuzle/notectl';
+      import { createMinimalPreset } from '@venuzle/notectl/presets/minimal';
 
       const editor = await createEditor({
         ...createMinimalPreset(),
@@ -161,7 +161,7 @@ Use `createMinimalPreset()` when you want a lean starting point. Use `createFull
 
 ```tsx
 import { useEffect, useRef } from 'react';
-import { createEditor, type NotectlEditor } from '@notectl/core';
+import { createEditor, type NotectlEditor } from '@venuzle/notectl';
 
 export function Editor() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -196,13 +196,13 @@ Vue and Svelte use the same pattern: create the editor on mount, append it to a 
 Use the Angular wrapper if you want template bindings, forms integration, and DI-based defaults.
 
 ```bash
-npm install @notectl/core @notectl/angular
+npm install @venuzle/notectl @venuzle/notectl-angular
 ```
 
 ```ts
 // app.config.ts
 import { type ApplicationConfig } from '@angular/core';
-import { provideNotectl } from '@notectl/angular';
+import { provideNotectl } from '@venuzle/notectl-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideNotectl()],
@@ -220,7 +220,7 @@ import {
   ListPlugin,
   TextFormattingPlugin,
   ThemePreset,
-} from '@notectl/angular';
+} from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-editor',
@@ -254,12 +254,12 @@ Full Angular guide: https://samyssmile.github.io/notectl/guides/angular/
 If you only want a small editor, import the plugins you need and group them in the toolbar:
 
 ```ts
-import { ThemePreset, createEditor } from '@notectl/core';
-import { HeadingPlugin } from '@notectl/core/plugins/heading';
-import { LinkPlugin } from '@notectl/core/plugins/link';
-import { ListPlugin } from '@notectl/core/plugins/list';
-import { TablePlugin } from '@notectl/core/plugins/table';
-import { TextFormattingPlugin } from '@notectl/core/plugins/text-formatting';
+import { ThemePreset, createEditor } from '@venuzle/notectl';
+import { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
+import { LinkPlugin } from '@venuzle/notectl/plugins/link';
+import { ListPlugin } from '@venuzle/notectl/plugins/list';
+import { TablePlugin } from '@venuzle/notectl/plugins/table';
+import { TextFormattingPlugin } from '@venuzle/notectl/plugins/text-formatting';
 
 const editor = await createEditor({
   theme: ThemePreset.Light,
@@ -331,8 +331,8 @@ Full plugin reference: https://samyssmile.github.io/notectl/plugins/overview/
 
 ## Examples
 
-- Vanilla example: https://github.com/Samyssmile/notectl/tree/main/examples/vanillajs
-- Angular example: https://github.com/Samyssmile/notectl/tree/main/examples/angular
+- Vanilla example: https://github.com/venuzle-gmbh/notectl/tree/main/examples/vanillajs
+- Angular example: https://github.com/venuzle-gmbh/notectl/tree/main/examples/angular
 
 ## Documentation
 

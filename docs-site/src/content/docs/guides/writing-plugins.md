@@ -8,7 +8,7 @@ description: Create custom plugins to extend the notectl editor.
 Every notectl plugin implements the `Plugin` interface:
 
 ```ts
-import type { Plugin, PluginContext } from '@notectl/core';
+import type { Plugin, PluginContext } from '@venuzle/notectl';
 
 class MyPlugin implements Plugin {
   readonly id = 'my-plugin';
@@ -209,7 +209,7 @@ Built-in entries use priorities 10–106 (paragraph=10, title=20, subtitle=30, h
 Communicate between plugins:
 
 ```ts
-import { EventKey } from '@notectl/core';
+import { EventKey } from '@venuzle/notectl';
 
 // Define a typed event
 const MyEvent = new EventKey<{ value: string }>('my-event');
@@ -228,7 +228,7 @@ const unsubscribe = context.getEventBus().on(MyEvent, (payload) => {
 Expose typed services for other plugins:
 
 ```ts
-import { ServiceKey } from '@notectl/core';
+import { ServiceKey } from '@venuzle/notectl';
 
 interface MyService {
   doSomething(): void;
@@ -397,8 +397,8 @@ if (!context.hasAnnouncement()) {
 ## Complete Example: Highlight Plugin
 
 ```ts
-import type { Plugin, PluginContext } from '@notectl/core';
-import { markType, isMarkActive, toggleMark } from '@notectl/core';
+import type { Plugin, PluginContext } from '@venuzle/notectl';
+import { markType, isMarkActive, toggleMark } from '@venuzle/notectl';
 
 class HighlightPlugin implements Plugin {
   readonly id = 'highlight';
@@ -468,7 +468,7 @@ const editor = await createEditor({
 For type-safe mark attributes, augment the `MarkAttrRegistry`:
 
 ```ts
-declare module '@notectl/core' {
+declare module '@venuzle/notectl' {
   interface MarkAttrRegistry {
     highlight: { color: string };
   }

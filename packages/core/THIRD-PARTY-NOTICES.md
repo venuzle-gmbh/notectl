@@ -1,12 +1,12 @@
 # Third-party notices
 
-`@notectl/core` has a single runtime dependency (`dompurify`). It also bundles
+`@venuzle/notectl` has a single runtime dependency (`dompurify`). It also bundles
 three self-hosted font assets, distributed here for completeness.
 
 ## Starter fonts (bundled WOFF2)
 
 `FIRA_CODE`, `FIRA_SANS`, and `STARTER_FONTS` from
-`@notectl/core/fonts/starter` contain **Fira Code** and **Fira Sans**. Both are
+`@venuzle/notectl/fonts/starter` contain **Fira Code** and **Fira Sans**. Both are
 licensed under the **SIL Open Font License, Version 1.1**.
 
 - Fira Code: Copyright 2014-2021 The Fira Code Project Authors
@@ -19,7 +19,7 @@ licensed under the **SIL Open Font License, Version 1.1**.
 ## Notectl Math (bundled OpenType MATH font)
 
 The formula plugin ships an opt-in OpenType MATH font, exported as
-`NOTECTL_MATH_FONT` from `@notectl/core/fonts/math`. It is a **subset** of
+`NOTECTL_MATH_FONT` from `@venuzle/notectl/fonts/math`. It is a **subset** of
 **Noto Sans Math**, Copyright 2022 Google LLC, licensed under the
 **SIL Open Font License, Version 1.1**.
 

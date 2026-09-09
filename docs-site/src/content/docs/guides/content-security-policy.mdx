@@ -12,7 +12,7 @@ notectl is designed for strict Content Security Policy environments. It works **
 If your CSP already allows scripts from `'self'`, notectl works out of the box:
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 // CSP-compliant out of the box — no extra config needed
 const editor = await createEditor({
@@ -226,7 +226,7 @@ This produces HTML with **zero** `style` attributes. All styling is expressed vi
 **Option A: `adoptContentStyles` (recommended)** — uses `adoptedStyleSheets`, no DOM element, no nonce required:
 
 ```ts
-import { adoptContentStyles, removeAdoptedStyles } from '@notectl/core';
+import { adoptContentStyles, removeAdoptedStyles } from '@venuzle/notectl';
 
 const { html, css } = await editor.getContentHTML({ cssMode: 'classes' });
 
@@ -242,7 +242,7 @@ This also works with Shadow DOM — pass `{ target: shadowRoot }`.
 **Option B: `injectContentStyles`** — creates a `<style>` element (needed for older browsers or SSR):
 
 ```ts
-import { injectContentStyles, removeContentStyles } from '@notectl/core';
+import { injectContentStyles, removeContentStyles } from '@venuzle/notectl';
 
 const { html, css } = await editor.getContentHTML({ cssMode: 'classes' });
 
@@ -310,7 +310,7 @@ Without the `styleMap`, class-based HTML can still be imported — but class-onl
 import {
   adoptContentStyles, removeAdoptedStyles,
   injectContentStyles, removeContentStyles,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 ```
 
 ### `adoptContentStyles(css, options?)`

@@ -8,7 +8,7 @@ The `ImagePlugin` adds image block support with a toolbar button that opens an u
 ## Usage
 
 ```ts
-import { ImagePlugin } from '@notectl/core/plugins/image';
+import { ImagePlugin } from '@venuzle/notectl/plugins/image';
 
 new ImagePlugin()
 // or with custom config:
@@ -111,7 +111,7 @@ The image block is a **void block** — it is not editable but can be selected (
 Register a custom upload service to handle file uploads:
 
 ```ts
-import { IMAGE_UPLOAD_SERVICE } from '@notectl/core/plugins/image';
+import { IMAGE_UPLOAD_SERVICE } from '@venuzle/notectl/plugins/image';
 
 const uploadService: ImageUploadService = {
   upload: async (file: File) => {

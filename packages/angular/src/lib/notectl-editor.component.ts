@@ -27,11 +27,11 @@ import type {
 	StateChangeEvent,
 	Theme,
 	Transaction,
-} from '@notectl/core';
-import { EditorInitializationAbortedError, NotectlEditor, ThemePreset } from '@notectl/core';
-import type { Locale } from '@notectl/core';
-import type { ContentCSSResult, ContentHTMLOptions } from '@notectl/core/html';
-import type { TextFormattingConfig } from '@notectl/core/plugins/text-formatting';
+} from '@venuzle/notectl';
+import { EditorInitializationAbortedError, NotectlEditor, ThemePreset } from '@venuzle/notectl';
+import type { Locale } from '@venuzle/notectl';
+import type { ContentCSSResult, ContentHTMLOptions } from '@venuzle/notectl/html';
+import type { TextFormattingConfig } from '@venuzle/notectl/plugins/text-formatting';
 
 import { EditorValueController } from './EditorValueController';
 import { type ContentFormat, NOTECTL_CONTENT_FORMAT, NOTECTL_DEFAULT_CONFIG } from './tokens';

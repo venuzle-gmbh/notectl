@@ -10,7 +10,7 @@ The `HeadingPlugin` adds heading support (H1-H6) with a toolbar dropdown selecto
 ## Usage
 
 ```ts
-import { HeadingPlugin } from '@notectl/core/plugins/heading';
+import { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
 
 new HeadingPlugin()
 // or with custom config:
@@ -100,7 +100,7 @@ The heading plugin renders as a **dropdown selector** in the toolbar. The dropdo
 The dropdown is backed by a shared registry. Any plugin can add entries that automatically appear in the picker by calling `registerBlockTypePickerEntry()`:
 
 ```ts
-import type { Plugin, PluginContext } from '@notectl/core';
+import type { Plugin, PluginContext } from '@venuzle/notectl';
 
 class FooterPlugin implements Plugin {
   readonly id = 'footer';

@@ -10,7 +10,7 @@ The `StrikethroughPlugin` adds ~~strikethrough~~ text support with a toggle comm
 ## Usage
 
 ```ts
-import { StrikethroughPlugin } from '@notectl/core/plugins/strikethrough';
+import { StrikethroughPlugin } from '@venuzle/notectl/plugins/strikethrough';
 
 new StrikethroughPlugin()
 ```

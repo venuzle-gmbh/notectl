@@ -10,8 +10,8 @@ The input system translates browser events into editor transactions. It consists
 Facade that coordinates all input-related handlers. Created internally by the editor.
 
 ```ts
-import { InputManager } from '@notectl/core';
-import type { InputManagerDeps } from '@notectl/core';
+import { InputManager } from '@venuzle/notectl';
+import type { InputManagerDeps } from '@venuzle/notectl';
 ```
 
 ### InputManagerDeps
@@ -74,7 +74,7 @@ const manager = new InputManager(contentElement, deps);
 Stores keymaps registered by plugins, organized by priority level.
 
 ```ts
-import { KeymapRegistry } from '@notectl/core';
+import { KeymapRegistry } from '@venuzle/notectl';
 
 const registry = new KeymapRegistry();
 ```
@@ -128,7 +128,7 @@ Key descriptors use the format `Mod-B`, `Shift-Enter`, `Alt-ArrowUp`, etc. `Mod`
 Normalizes a `KeyboardEvent` into a consistent key descriptor string. Format: `"Mod-Shift-Alt-Key"` where `Mod` = Ctrl/Cmd.
 
 ```ts
-import { normalizeKeyDescriptor } from '@notectl/core';
+import { normalizeKeyDescriptor } from '@venuzle/notectl';
 
 // Takes a KeyboardEvent, not a string
 element.addEventListener('keydown', (e) => {
@@ -148,7 +148,7 @@ function normalizeKeyDescriptor(e: KeyboardEvent): string
 Stores pattern-based text transform rules registered by plugins.
 
 ```ts
-import { InputRuleRegistry } from '@notectl/core';
+import { InputRuleRegistry } from '@venuzle/notectl';
 
 const registry = new InputRuleRegistry();
 ```
@@ -204,7 +204,7 @@ const headingRule: InputRule = {
 Manages handlers for dropped or pasted files, matched by MIME type patterns.
 
 ```ts
-import { FileHandlerRegistry } from '@notectl/core';
+import { FileHandlerRegistry } from '@venuzle/notectl';
 
 const registry = new FileHandlerRegistry();
 ```
@@ -260,7 +260,7 @@ registry.registerFileHandler('image/*', async (file, position) => {
 Handles copy and cut operations, serializing the selection to `text/plain` and `text/html` clipboard formats.
 
 ```ts
-import { ClipboardHandler } from '@notectl/core';
+import { ClipboardHandler } from '@venuzle/notectl';
 
 const handler = new ClipboardHandler(element, {
   getState: () => editor.getState(),
@@ -300,7 +300,7 @@ The `ClipboardHandler` automatically listens for `copy` and `cut` events on the 
 Tracks IME (Input Method Editor) composition state for languages like Chinese, Japanese, and Korean.
 
 ```ts
-import { CompositionTracker } from '@notectl/core';
+import { CompositionTracker } from '@venuzle/notectl';
 
 const tracker = new CompositionTracker();
 ```

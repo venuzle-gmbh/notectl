@@ -1,25 +1,25 @@
-import { ThemePreset, createEditor } from '@notectl/core';
-import type { NotectlEditor, StateChangeEvent, Theme } from '@notectl/core';
-import { NOTECTL_MATH_FONT } from '@notectl/core/fonts/math';
-import { STARTER_FONTS } from '@notectl/core/fonts/starter';
-import { AlignmentPlugin } from '@notectl/core/plugins/alignment';
-import { BlockquotePlugin } from '@notectl/core/plugins/blockquote';
-import { FontPlugin } from '@notectl/core/plugins/font';
-import { FontSizePlugin } from '@notectl/core/plugins/font-size';
-import { FormulaPlugin } from '@notectl/core/plugins/formula';
-import { HeadingPlugin } from '@notectl/core/plugins/heading';
-import { HighlightPlugin } from '@notectl/core/plugins/highlight';
-import { HorizontalRulePlugin } from '@notectl/core/plugins/horizontal-rule';
-import { ImagePlugin } from '@notectl/core/plugins/image';
-import { LinkPlugin } from '@notectl/core/plugins/link';
-import { ListPlugin } from '@notectl/core/plugins/list';
-import { StrikethroughPlugin } from '@notectl/core/plugins/strikethrough';
-import { SuperSubPlugin } from '@notectl/core/plugins/super-sub';
-import { TablePlugin } from '@notectl/core/plugins/table';
-import { TextColorPlugin } from '@notectl/core/plugins/text-color';
-import { TextFormattingPlugin } from '@notectl/core/plugins/text-formatting';
-import { ToolbarOverflowBehavior, ToolbarPlugin } from '@notectl/core/plugins/toolbar';
-import { createFullPreset } from '@notectl/core/presets/full';
+import { ThemePreset, createEditor } from '@venuzle/notectl';
+import type { NotectlEditor, StateChangeEvent, Theme } from '@venuzle/notectl';
+import { NOTECTL_MATH_FONT } from '@venuzle/notectl/fonts/math';
+import { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
+import { AlignmentPlugin } from '@venuzle/notectl/plugins/alignment';
+import { BlockquotePlugin } from '@venuzle/notectl/plugins/blockquote';
+import { FontPlugin } from '@venuzle/notectl/plugins/font';
+import { FontSizePlugin } from '@venuzle/notectl/plugins/font-size';
+import { FormulaPlugin } from '@venuzle/notectl/plugins/formula';
+import { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
+import { HighlightPlugin } from '@venuzle/notectl/plugins/highlight';
+import { HorizontalRulePlugin } from '@venuzle/notectl/plugins/horizontal-rule';
+import { ImagePlugin } from '@venuzle/notectl/plugins/image';
+import { LinkPlugin } from '@venuzle/notectl/plugins/link';
+import { ListPlugin } from '@venuzle/notectl/plugins/list';
+import { StrikethroughPlugin } from '@venuzle/notectl/plugins/strikethrough';
+import { SuperSubPlugin } from '@venuzle/notectl/plugins/super-sub';
+import { TablePlugin } from '@venuzle/notectl/plugins/table';
+import { TextColorPlugin } from '@venuzle/notectl/plugins/text-color';
+import { TextFormattingPlugin } from '@venuzle/notectl/plugins/text-formatting';
+import { ToolbarOverflowBehavior, ToolbarPlugin } from '@venuzle/notectl/plugins/toolbar';
+import { createFullPreset } from '@venuzle/notectl/presets/full';
 
 declare global {
 	interface Window {

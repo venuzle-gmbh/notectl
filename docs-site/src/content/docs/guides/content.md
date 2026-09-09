@@ -188,7 +188,7 @@ Whitespace is preserved verbatim inside `<pre>` (and any element with `white-spa
 ### From JSON
 
 ```ts
-import { createDocument, createBlockNode, createTextNode, nodeType } from '@notectl/core';
+import { createDocument, createBlockNode, createTextNode, nodeType } from '@venuzle/notectl';
 
 const doc = createDocument([
   createBlockNode(nodeType('paragraph'), [

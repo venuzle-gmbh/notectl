@@ -9,7 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@notectl/core": "workspace:*"
+		"@venuzle/notectl": "workspace:*"
 	},
 	"devDependencies": {
 		"vite": "^8.2.0"

@@ -1,4 +1,4 @@
-import type { Document, NotectlEditor } from '@notectl/core';
+import type { Document, NotectlEditor } from '@venuzle/notectl';
 
 import type { ContentFormat } from './tokens';
 import type { NotectlValue } from './types';

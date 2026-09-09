@@ -8,7 +8,7 @@ description: The immutable editor state container.
 ## Creating State
 
 ```ts
-import { EditorState } from '@notectl/core';
+import { EditorState } from '@venuzle/notectl';
 
 const state = EditorState.create({
   doc: myDocument,    // Optional Document
@@ -100,7 +100,7 @@ This enables:
 Manages undo/redo stacks with automatic transaction grouping.
 
 ```ts
-import { HistoryManager } from '@notectl/core';
+import { HistoryManager } from '@venuzle/notectl';
 
 const history = new HistoryManager({ groupTimeoutMs: 500, maxDepth: 100 });
 ```

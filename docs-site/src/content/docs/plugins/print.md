@@ -8,7 +8,7 @@ The `PrintPlugin` adds print functionality to the editor. It renders a clean pri
 ## Usage
 
 ```ts
-import { PrintPlugin } from '@notectl/core/plugins/print';
+import { PrintPlugin } from '@venuzle/notectl/plugins/print';
 
 new PrintPlugin()
 // or with custom config:
@@ -90,7 +90,7 @@ The print button is registered in the `actions` toolbar group. It is shown by de
 The plugin registers a `PrintService` accessible via the service key. Use this for programmatic access without the toolbar button.
 
 ```ts
-import { PRINT_SERVICE_KEY } from '@notectl/core/plugins/print';
+import { PRINT_SERVICE_KEY } from '@venuzle/notectl/plugins/print';
 
 // Get the service from the editor
 const printService = editor.getService(PRINT_SERVICE_KEY);
@@ -118,7 +118,7 @@ const html: string = printService.toHTML({
 The plugin emits events before and after printing, allowing you to modify options or cancel the print.
 
 ```ts
-import { BEFORE_PRINT, AFTER_PRINT } from '@notectl/core/plugins/print';
+import { BEFORE_PRINT, AFTER_PRINT } from '@venuzle/notectl/plugins/print';
 
 // Modify options or cancel before printing
 editor.onPluginEvent(BEFORE_PRINT, (event) => {
@@ -148,8 +148,8 @@ When the editor has a [`paperSize`](/notectl/guides/paper-size/) configured, the
 No extra configuration is needed — the editor injects `paperSize` into the print options automatically via the `BEFORE_PRINT` event.
 
 ```ts
-import { createEditor, PaperSize } from '@notectl/core';
-import { PrintPlugin } from '@notectl/core/plugins/print';
+import { createEditor, PaperSize } from '@venuzle/notectl';
+import { PrintPlugin } from '@venuzle/notectl/plugins/print';
 
 const editor = await createEditor({
   paperSize: PaperSize.DINA4,

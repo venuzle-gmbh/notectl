@@ -14,7 +14,7 @@ versions generally do not receive backported security fixes.
 | Unreleased development code | ❌         |
 
 Users are encouraged to update to the latest available versions of
-`@notectl/core` and `@notectl/angular`.
+`@venuzle/notectl` and `@venuzle/notectl-angular`.
 
 ## Reporting a Vulnerability
 

@@ -2,16 +2,16 @@
  * Full entry point — re-exports everything for UMD builds and legacy consumers.
  *
  * For ESM consumers, prefer importing from specific sub-paths:
- * - `@notectl/core` — core framework (model, state, view, plugin system)
- * - `@notectl/core/html` — HTML serialization/parsing
- * - `@notectl/core/presets` — preset factory functions
- * - `@notectl/core/fonts/starter` and `/fonts/math` — embedded font definitions
- * - `@notectl/core/plugins/<name>` — individual plugins
+ * - `@venuzle/notectl` — core framework (model, state, view, plugin system)
+ * - `@venuzle/notectl/html` — HTML serialization/parsing
+ * - `@venuzle/notectl/presets` — preset factory functions
+ * - `@venuzle/notectl/fonts/starter` and `/fonts/math` — embedded font definitions
+ * - `@venuzle/notectl/plugins/<name>` — individual plugins
  *
  * @example
  * ```ts
  * // UMD / kitchen-sink import:
- * import * as NotectlCore from '@notectl/core/full';
+ * import * as NotectlCore from '@venuzle/notectl/full';
  * ```
  */
 

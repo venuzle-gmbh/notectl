@@ -174,7 +174,7 @@ continue past a failure.
 ### EventKey
 
 ```ts
-import { EventKey } from '@notectl/core';
+import { EventKey } from '@venuzle/notectl';
 
 const MyEvent = new EventKey<{ value: string }>('my-event');
 
@@ -188,7 +188,7 @@ unsubscribe(); // Remove the listener
 ### ServiceKey
 
 ```ts
-import { ServiceKey } from '@notectl/core';
+import { ServiceKey } from '@venuzle/notectl';
 
 interface MyService { doWork(): void; }
 const MyKey = new ServiceKey<MyService>('my-service');
@@ -306,7 +306,7 @@ The HeadingPlugin registers its built-in entries at priorities 10–106 (paragra
 The `PluginManager` orchestrates plugin lifecycle, registration, and dispatch. It is primarily used internally by the editor, but its API is exported for advanced use cases.
 
 ```ts
-import { PluginManager } from '@notectl/core';
+import { PluginManager } from '@venuzle/notectl';
 ```
 
 ### PluginManagerInitOptions
@@ -382,7 +382,7 @@ interface MiddlewareInfo {
 Type-safe event bus used for inter-plugin communication. Plugins access it via `context.getEventBus()`.
 
 ```ts
-import { EventBus, EventKey } from '@notectl/core';
+import { EventBus, EventKey } from '@venuzle/notectl';
 
 const bus = new EventBus();
 ```

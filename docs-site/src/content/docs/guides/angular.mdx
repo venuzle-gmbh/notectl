@@ -5,7 +5,7 @@ description: Integrate notectl into Angular applications with native bindings, r
 
 import { Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
-The `@notectl/angular` package provides a native Angular wrapper around the notectl editor. It ships a standalone component, a `ControlValueAccessor` for reactive and template-driven forms, and an injectable service for programmatic access.
+The `@venuzle/notectl-angular` package provides a native Angular wrapper around the notectl editor. It ships a standalone component, a `ControlValueAccessor` for reactive and template-driven forms, and an injectable service for programmatic access.
 
 **Requirements:** Angular 21+, Node.js 20+
 
@@ -15,10 +15,10 @@ The `@notectl/angular` package provides a native Angular wrapper around the note
 1. **Install both packages**
 
    ```bash
-   npm install @notectl/core @notectl/angular
+   npm install @venuzle/notectl @venuzle/notectl-angular
    ```
 
-   `@notectl/core` contains the editor engine and plugins. `@notectl/angular` provides the Angular bindings.
+   `@venuzle/notectl` contains the editor engine and plugins. `@venuzle/notectl-angular` provides the Angular bindings.
 
 2. **Register the provider**
 
@@ -27,7 +27,7 @@ The `@notectl/angular` package provides a native Angular wrapper around the note
    ```ts
    // app.config.ts
    import { type ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
-   import { provideNotectl } from '@notectl/angular';
+   import { provideNotectl } from '@venuzle/notectl-angular';
 
    export const appConfig: ApplicationConfig = {
      providers: [
@@ -51,8 +51,8 @@ import {
   ListPlugin,
   LinkPlugin,
   ThemePreset,
-} from '@notectl/angular';
-import type { Plugin, StateChangeEvent } from '@notectl/angular';
+} from '@venuzle/notectl-angular';
+import type { Plugin, StateChangeEvent } from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-editor',
@@ -87,7 +87,7 @@ export class EditorComponent {
 ```
 
 <Aside type="tip">
-  All plugins and types are re-exported from `@notectl/angular`, so you only need a single import source.
+  All plugins and types are re-exported from `@venuzle/notectl-angular`, so you only need a single import source.
 </Aside>
 
 ## Component Inputs & Outputs
@@ -147,8 +147,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
   NotectlEditorComponent,
   TextFormattingPlugin,
-} from '@notectl/angular';
-import type { Document, Plugin } from '@notectl/angular';
+} from '@venuzle/notectl-angular';
+import type { Document, Plugin } from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-editor-form',
@@ -215,8 +215,8 @@ Angular 22 stabilized [Signal Forms](https://angular.dev/guide/forms/signals). `
 ```ts
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormField, form } from '@angular/forms/signals';
-import { NotectlEditorComponent } from '@notectl/angular';
-import type { Document } from '@notectl/angular';
+import { NotectlEditorComponent } from '@venuzle/notectl-angular';
+import type { Document } from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-signal-form-editor',
@@ -272,8 +272,8 @@ import {
 import {
   NotectlEditorComponent,
   NotectlEditorService,
-} from '@notectl/angular';
-import type { Plugin } from '@notectl/angular';
+} from '@venuzle/notectl-angular';
+import type { Plugin } from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-editor-page',
@@ -348,7 +348,7 @@ Most importantly, pass `{ includeBlockIds: false }` for clean export HTML with n
 another system):
 
 ```ts
-import type { ContentCSSResult } from '@notectl/angular';
+import type { ContentCSSResult } from '@venuzle/notectl-angular';
 
 // Clean export HTML, no data-block-id
 const clean: string = await editor.getContentHTML({ includeBlockIds: false });
@@ -409,8 +409,8 @@ import {
   SuperSubPlugin,
   STARTER_FONTS,
   ThemePreset,
-} from '@notectl/angular';
-import type { Plugin } from '@notectl/angular';
+} from '@venuzle/notectl-angular';
+import type { Plugin } from '@venuzle/notectl-angular';
 
 @Component({
   selector: 'app-full-editor',
@@ -463,12 +463,12 @@ provideNotectl({
 
 ## Testing
 
-The `@notectl/angular/testing` package provides a test harness:
+The `@venuzle/notectl-angular/testing` package provides a test harness:
 
 ```ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NotectlEditorComponent } from '@notectl/angular';
-import { NotectlTestHarness } from '@notectl/angular/testing';
+import { NotectlEditorComponent } from '@venuzle/notectl-angular';
+import { NotectlTestHarness } from '@venuzle/notectl-angular/testing';
 
 describe('MyEditorComponent', () => {
   let fixture: ComponentFixture<MyEditorComponent>;

@@ -10,7 +10,7 @@
 		"docs:screenshots": "playwright test --config=playwright.screenshots.config.ts",
 		"demo:record": "playwright test --config=playwright.demo.config.ts",
 		"markdown-demo:record": "playwright test --config=playwright.markdown-demo.config.ts",
-		"preview:starlight": "pnpm --filter @notectl/core build && pnpm --filter docs-site build && pnpm --filter docs-site preview",
+		"preview:starlight": "pnpm --filter @venuzle/notectl build && pnpm --filter docs-site build && pnpm --filter docs-site preview",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",

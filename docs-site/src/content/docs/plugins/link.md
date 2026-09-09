@@ -10,7 +10,7 @@ The `LinkPlugin` adds hyperlink support with a toolbar button that opens a URL i
 ## Usage
 
 ```ts
-import { LinkPlugin } from '@notectl/core/plugins/link';
+import { LinkPlugin } from '@venuzle/notectl/plugins/link';
 
 new LinkPlugin()
 // or:
@@ -93,7 +93,7 @@ because portable Markdown has no syntax for an ID on a block. See the
 To add a link programmatically without the popup:
 
 ```ts
-import { markType } from '@notectl/core';
+import { markType } from '@venuzle/notectl';
 
 // Select text first, then apply the link mark
 const state = editor.getState();

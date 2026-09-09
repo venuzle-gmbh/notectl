@@ -68,7 +68,7 @@ interface DecorationAttrs {
 ## Factory Functions
 
 ```ts
-import { inlineDecoration, nodeDecoration, widgetDecoration } from '@notectl/core';
+import { inlineDecoration, nodeDecoration, widgetDecoration } from '@venuzle/notectl';
 
 // Highlight a text range
 const highlight = inlineDecoration(blockId('b1'), 0, 5, {
@@ -99,7 +99,7 @@ const lineNum = widgetDecoration(
 An immutable collection of decorations indexed by block ID:
 
 ```ts
-import { DecorationSet, inlineDecoration } from '@notectl/core';
+import { DecorationSet, inlineDecoration } from '@venuzle/notectl';
 
 // Create from array
 const set = DecorationSet.create([
@@ -141,8 +141,8 @@ DecorationSet.empty;
 Plugins provide decorations via the `decorations()` method:
 
 ```ts
-import type { Plugin, EditorState } from '@notectl/core';
-import { DecorationSet, inlineDecoration, getBlockText } from '@notectl/core';
+import type { Plugin, EditorState } from '@venuzle/notectl';
+import { DecorationSet, inlineDecoration, getBlockText } from '@venuzle/notectl';
 
 class SearchHighlightPlugin implements Plugin {
   readonly id = 'search-highlight';

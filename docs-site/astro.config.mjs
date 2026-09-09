@@ -17,12 +17,12 @@ export default defineConfig({
 				{
 					icon: 'github',
 					label: 'GitHub',
-					href: 'https://github.com/samyssmile/notectl',
+					href: 'https://github.com/venuzle-gmbh/notectl',
 				},
 			],
 			customCss: ['./src/styles/custom.css'],
 			editLink: {
-				baseUrl: 'https://github.com/samyssmile/notectl/edit/main/docs-site/',
+				baseUrl: 'https://github.com/venuzle-gmbh/notectl/edit/main/docs-site/',
 			},
 			head: [
 				{

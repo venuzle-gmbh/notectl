@@ -10,7 +10,7 @@ The schema system defines how block types, inline marks, and inline nodes behave
 Central registry for all specs registered by plugins. Model-only — no DOM dependencies.
 
 ```ts
-import { SchemaRegistry } from '@notectl/core';
+import { SchemaRegistry } from '@venuzle/notectl';
 
 const registry = new SchemaRegistry();
 ```
@@ -340,7 +340,7 @@ raw markup. Keep them pure and synchronous.
 Two pure functions for validating document structure:
 
 ```ts
-import { canContain, validateContent } from '@notectl/core';
+import { canContain, validateContent } from '@venuzle/notectl';
 ```
 
 ### `canContain(registry, parentType, childType)`
@@ -366,7 +366,7 @@ const valid: boolean = validateContent(registry, 'table_row', ['table_cell', 'ta
 The `registerBuiltinSpecs` function registers the built-in paragraph spec on a `SchemaRegistry`:
 
 ```ts
-import { registerBuiltinSpecs, SchemaRegistry } from '@notectl/core';
+import { registerBuiltinSpecs, SchemaRegistry } from '@venuzle/notectl';
 
 const registry = new SchemaRegistry();
 registerBuiltinSpecs(registry);
@@ -383,7 +383,7 @@ This is called automatically by the editor during initialization.
 Creates the default schema with paragraph nodes and bold/italic/underline marks:
 
 ```ts
-import { defaultSchema } from '@notectl/core';
+import { defaultSchema } from '@venuzle/notectl';
 
 const schema = defaultSchema();
 // { nodeTypes: ['paragraph'], markTypes: ['bold', 'italic', 'underline'] }
@@ -394,7 +394,7 @@ const schema = defaultSchema();
 Derives a `Schema` from a `SchemaRegistry`'s registered specs:
 
 ```ts
-import { schemaFromRegistry } from '@notectl/core';
+import { schemaFromRegistry } from '@venuzle/notectl';
 
 const schema = schemaFromRegistry(registry);
 ```
@@ -414,7 +414,7 @@ interface Schema {
 Checks if a node type is allowed by the schema:
 
 ```ts
-import { isNodeTypeAllowed } from '@notectl/core';
+import { isNodeTypeAllowed } from '@venuzle/notectl';
 
 isNodeTypeAllowed(schema, 'heading'); // true
 ```
@@ -424,7 +424,7 @@ isNodeTypeAllowed(schema, 'heading'); // true
 Checks whether a mark type is allowed by the schema:
 
 ```ts
-import { isMarkAllowed } from '@notectl/core';
+import { isMarkAllowed } from '@venuzle/notectl';
 
 isMarkAllowed(schema, 'bold'); // true
 ```
@@ -434,7 +434,7 @@ isMarkAllowed(schema, 'bold'); // true
 Creates an `HTMLElement` with the required `data-block-id` attribute. Use this in `NodeSpec.toDOM()` implementations:
 
 ```ts
-import { createBlockElement, blockId } from '@notectl/core';
+import { createBlockElement, blockId } from '@venuzle/notectl';
 
 const el = createBlockElement('div', blockId('b1'));
 // <div data-block-id="b1"></div>

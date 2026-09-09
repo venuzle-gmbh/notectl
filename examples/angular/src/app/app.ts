@@ -32,9 +32,9 @@ import {
   FormulaPlugin,
   PrintPlugin,
   InlineCodePlugin,
-} from '@notectl/angular';
-import { STARTER_FONTS } from '@notectl/core/fonts/starter';
-import { ToolbarOverflowBehavior } from '@notectl/core/plugins/toolbar';
+} from '@venuzle/notectl-angular';
+import { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
+import { ToolbarOverflowBehavior } from '@venuzle/notectl/plugins/toolbar';
 
 const INTER: FontDefinition = {
   name: 'Inter',

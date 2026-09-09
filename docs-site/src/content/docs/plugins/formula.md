@@ -14,8 +14,8 @@ The `FormulaPlugin` adds inline and block (display) math to notectl. It is built
 ## Usage
 
 ```ts
-import { FormulaPlugin } from '@notectl/core/plugins/formula';
-import { NOTECTL_MATH_FONT } from '@notectl/core/fonts/math';
+import { FormulaPlugin } from '@venuzle/notectl/plugins/formula';
+import { NOTECTL_MATH_FONT } from '@venuzle/notectl/fonts/math';
 
 // Recommended: pass the bundled OpenType MATH font for correct rendering in Chromium.
 new FormulaPlugin({ mathFont: NOTECTL_MATH_FONT });
@@ -24,8 +24,8 @@ new FormulaPlugin({ mathFont: NOTECTL_MATH_FONT });
 The plugin is included in the full preset:
 
 ```ts
-import { createFullPreset } from '@notectl/core/presets/full';
-import { NOTECTL_MATH_FONT } from '@notectl/core/fonts/math';
+import { createFullPreset } from '@venuzle/notectl/presets/full';
+import { NOTECTL_MATH_FONT } from '@venuzle/notectl/fonts/math';
 
 const preset = createFullPreset({
   formula: { mathFont: NOTECTL_MATH_FONT },
@@ -124,7 +124,7 @@ interface FormulaPluginConfig {
   };
   /** Preset px sizes in the editor's size control; pass [] to hide it. */
   readonly fontSizes?: readonly number[];
-  /** Bundled OpenType MATH font (import from '@notectl/core/fonts/math'). */
+  /** Bundled OpenType MATH font (import from '@venuzle/notectl/fonts/math'). */
   readonly mathFont?: FontDefinition;
 }
 ```

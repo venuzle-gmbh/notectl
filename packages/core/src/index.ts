@@ -1,15 +1,15 @@
 /**
- * @notectl/core — State-first rich text editor Web Component.
+ * @venuzle/notectl — State-first rich text editor Web Component.
  *
  * This entry point exports the core framework: model, state, view, input,
  * commands, plugin system, decorations, theme, and the editor Web Component.
  *
  * For plugins, presets, HTML serialization, and fonts, use sub-path imports:
- * - `@notectl/core/plugins/<name>` — individual plugins
- * - `@notectl/core/presets` — preset factory functions
- * - `@notectl/core/html` — HTML serialization/parsing
- * - `@notectl/core/fonts/starter` — embedded starter font definitions
- * - `@notectl/core/full` — kitchen-sink (all of the above)
+ * - `@venuzle/notectl/plugins/<name>` — individual plugins
+ * - `@venuzle/notectl/presets` — preset factory functions
+ * - `@venuzle/notectl/html` — HTML serialization/parsing
+ * - `@venuzle/notectl/fonts/starter` — embedded starter font definitions
+ * - `@venuzle/notectl/full` — kitchen-sink (all of the above)
  *
  * @packageDocumentation
  */

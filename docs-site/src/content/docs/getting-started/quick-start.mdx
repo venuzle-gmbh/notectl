@@ -14,7 +14,7 @@ This guide walks you through creating a fully-featured rich text editor with too
 The simplest setup — a text editor with bold, italic, and underline:
 
 ```ts
-import { createEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
 
 const editor = await createEditor({
   placeholder: 'Start typing...',
@@ -33,9 +33,9 @@ Runtime styling defaults to strict CSP-safe mode. For CSP policies and nonce wir
 The fastest way to get a production editor with all plugins is using `createFullPreset()`:
 
 ```ts
-import { createEditor, ThemePreset } from '@notectl/core';
-import { createFullPreset } from '@notectl/core/presets';
-import { STARTER_FONTS } from '@notectl/core/fonts/starter';
+import { createEditor, ThemePreset } from '@venuzle/notectl';
+import { createFullPreset } from '@venuzle/notectl/presets';
+import { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
 
 const editor = await createEditor({
   ...createFullPreset({
@@ -79,14 +79,14 @@ If you need full control over which plugins appear and how they're grouped, conf
 1. **Import the plugins you need**
 
    ```ts
-   import { createEditor } from '@notectl/core';
-   import { TextFormattingPlugin } from '@notectl/core/plugins/text-formatting';
-   import { HeadingPlugin } from '@notectl/core/plugins/heading';
-   import { ListPlugin } from '@notectl/core/plugins/list';
-   import { LinkPlugin } from '@notectl/core/plugins/link';
-   import { BlockquotePlugin } from '@notectl/core/plugins/blockquote';
-   import { TablePlugin } from '@notectl/core/plugins/table';
-   import { CodeBlockPlugin } from '@notectl/core/plugins/code-block';
+   import { createEditor } from '@venuzle/notectl';
+   import { TextFormattingPlugin } from '@venuzle/notectl/plugins/text-formatting';
+   import { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
+   import { ListPlugin } from '@venuzle/notectl/plugins/list';
+   import { LinkPlugin } from '@venuzle/notectl/plugins/link';
+   import { BlockquotePlugin } from '@venuzle/notectl/plugins/blockquote';
+   import { TablePlugin } from '@venuzle/notectl/plugins/table';
+   import { CodeBlockPlugin } from '@venuzle/notectl/plugins/code-block';
    ```
 
 2. **Configure the toolbar layout**
@@ -227,8 +227,8 @@ Since notectl is a Web Component, it works in any framework:
   <TabItem label="React">
 ```tsx
 import { useEffect, useRef } from 'react';
-import { createEditor } from '@notectl/core';
-import type { NotectlEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
+import type { NotectlEditor } from '@venuzle/notectl';
 
 export function Editor() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -260,8 +260,8 @@ export function Editor() {
 ```vue
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-import { createEditor } from '@notectl/core';
-import type { NotectlEditor } from '@notectl/core';
+import { createEditor } from '@venuzle/notectl';
+import type { NotectlEditor } from '@venuzle/notectl';
 
 const container = ref<HTMLElement>();
 let editor: NotectlEditor | null = null;
@@ -288,8 +288,8 @@ onUnmounted(() => {
 ```svelte
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
-  import { createEditor } from '@notectl/core';
-  import type { NotectlEditor } from '@notectl/core';
+  import { createEditor } from '@venuzle/notectl';
+  import type { NotectlEditor } from '@venuzle/notectl';
 
   let container: HTMLElement;
   let editor: NotectlEditor | null = null;
@@ -315,7 +315,7 @@ onUnmounted(() => {
 <div id="app"></div>
 
 <script type="module">
-  import { createEditor } from '@notectl/core';
+  import { createEditor } from '@venuzle/notectl';
 
   const editor = await createEditor({
     placeholder: 'Start typing...',

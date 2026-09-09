@@ -92,7 +92,7 @@ function table(
 			id: uid(),
 			type: 'table_row',
 			...(options.rowMinHeightsPx?.[rowIndex] === null ||
-			options.rowMinHeightsPx?.[rowIndex] === undefined
+				options.rowMinHeightsPx?.[rowIndex] === undefined
 				? {}
 				: { attrs: { minHeightPx: options.rowMinHeightsPx[rowIndex] } }),
 			children: cells.map((cellContent) => ({
@@ -612,7 +612,7 @@ const LINK_CONTENT: DocDef = {
 	children: [
 		para([
 			txt('Add hyperlinks seamlessly. Visit the '),
-			txt('notectl repository', link('https://github.com/Samyssmile/notectl')),
+			txt('notectl repository', link('https://github.com/venuzle-gmbh/notectl')),
 			txt(' to learn more, or check the '),
 			txt('API documentation', link('https://example.com/docs')),
 			txt(' for a detailed reference.'),

@@ -10,7 +10,7 @@ Utility types and functions used across the notectl codebase. These are grouped 
 Nominal types that prevent accidentally passing a raw `string` where a specific identifier is expected. Built on TypeScript's branded type pattern.
 
 ```ts
-import { blockId, nodeType, markType, inlineType, pluginId, commandName } from '@notectl/core';
+import { blockId, nodeType, markType, inlineType, pluginId, commandName } from '@venuzle/notectl';
 ```
 
 | Type | Factory Function | Example |
@@ -41,7 +41,7 @@ interface NodeAttrRegistry {
 Plugins augment this to add their own types:
 
 ```ts
-declare module '@notectl/core' {
+declare module '@venuzle/notectl' {
   interface NodeAttrRegistry {
     heading: { level: number };
     code_block: { language: string };
@@ -62,7 +62,7 @@ interface MarkAttrRegistry {
 Augment for marks with attributes:
 
 ```ts
-declare module '@notectl/core' {
+declare module '@venuzle/notectl' {
   interface MarkAttrRegistry {
     link: { href: string; title?: string };
     textColor: { color: string };
@@ -89,7 +89,7 @@ interface InlineNodeAttrRegistry {
 ### Type Guards
 
 ```ts
-import { isNodeOfType, isMarkOfType, isInlineNodeOfType } from '@notectl/core';
+import { isNodeOfType, isMarkOfType, isInlineNodeOfType } from '@venuzle/notectl';
 ```
 
 | Function | Signature | Description |
@@ -121,7 +121,7 @@ Type-safe keys for the plugin event bus and service registry. See also [Plugin I
 ### EventKey
 
 ```ts
-import { EventKey } from '@notectl/core';
+import { EventKey } from '@venuzle/notectl';
 
 const SearchChanged = new EventKey<{ query: string }>('search-changed');
 ```
@@ -129,7 +129,7 @@ const SearchChanged = new EventKey<{ query: string }>('search-changed');
 ### ServiceKey
 
 ```ts
-import { ServiceKey } from '@notectl/core';
+import { ServiceKey } from '@venuzle/notectl';
 
 interface SpellChecker { check(text: string): string[]; }
 const SpellCheckerKey = new ServiceKey<SpellChecker>('spell-checker');
@@ -142,7 +142,7 @@ const SpellCheckerKey = new ServiceKey<SpellChecker>('spell-checker');
 Standalone event bus class. See [Plugin Interface](/notectl/api/plugin-interface/#eventbus) for full API.
 
 ```ts
-import { EventBus } from '@notectl/core';
+import { EventBus } from '@venuzle/notectl';
 
 const bus = new EventBus();
 const unsub = bus.on(SearchChanged, (payload) => {
@@ -159,7 +159,7 @@ unsub();
 Unicode-aware functions for traversing text by grapheme cluster (not code unit). Essential for correct cursor movement with emoji, combining characters, and other multi-code-unit graphemes.
 
 ```ts
-import { nextGraphemeSize, prevGraphemeSize } from '@notectl/core';
+import { nextGraphemeSize, prevGraphemeSize } from '@venuzle/notectl';
 ```
 
 ### `nextGraphemeSize(text, offset)`
@@ -188,7 +188,7 @@ prevGraphemeSize('Hello', 5);   // 1 (o)
 Escapes `&`, `<`, `>`, and `"` for safe HTML insertion:
 
 ```ts
-import { escapeHTML } from '@notectl/core';
+import { escapeHTML } from '@venuzle/notectl';
 
 escapeHTML('<script>alert("xss")</script>');
 // '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;'
@@ -199,7 +199,7 @@ escapeHTML('<script>alert("xss")</script>');
 Pretty-prints HTML with indentation for block-level elements:
 
 ```ts
-import { formatHTML } from '@notectl/core';
+import { formatHTML } from '@venuzle/notectl';
 
 formatHTML('<div><p>Hello</p></div>');
 // '<div>\n  <p>Hello</p>\n</div>'
@@ -214,7 +214,7 @@ The default indent is two spaces.
 Types and utilities for paper dimensions, used by the print plugin and paper mode.
 
 ```ts
-import { PaperSize, getPaperDimensions, getPaperCSSSize, isValidPaperSize } from '@notectl/core';
+import { PaperSize, getPaperDimensions, getPaperCSSSize, isValidPaperSize } from '@venuzle/notectl';
 ```
 
 ### PaperSize
@@ -289,7 +289,7 @@ Use `Locale.BROWSER` to auto-detect from `navigator.language`.
 Service that provides the current locale to plugins:
 
 ```ts
-import { LocaleService, LocaleServiceKey } from '@notectl/core';
+import { LocaleService, LocaleServiceKey } from '@venuzle/notectl';
 
 const service = new LocaleService('en');
 service.getLocale(); // 'en'
@@ -309,7 +309,7 @@ if (locale) {
 Returns a human-readable label for a block type name. Used internally by the announcer for screen reader output.
 
 ```ts
-import { getBlockTypeLabel } from '@notectl/core';
+import { getBlockTypeLabel } from '@venuzle/notectl';
 
 getBlockTypeLabel('paragraph');                    // 'Paragraph'
 getBlockTypeLabel('heading');                      // 'Heading'

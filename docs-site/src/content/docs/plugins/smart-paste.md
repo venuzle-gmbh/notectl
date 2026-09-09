@@ -8,7 +8,7 @@ The `SmartPastePlugin` detects structured content (JSON, XML, Java, TypeScript) 
 ## Usage
 
 ```ts
-import { SmartPastePlugin } from '@notectl/core/plugins/smart-paste';
+import { SmartPastePlugin } from '@venuzle/notectl/plugins/smart-paste';
 
 new SmartPastePlugin()
 // or with custom detectors:
@@ -75,7 +75,7 @@ new SmartPastePlugin({ detectors: [myDetector] })
 ### Via Service
 
 ```ts
-import { SMART_PASTE_SERVICE_KEY } from '@notectl/core/plugins/smart-paste';
+import { SMART_PASTE_SERVICE_KEY } from '@venuzle/notectl/plugins/smart-paste';
 
 // Inside a plugin's init method:
 const smartPaste = context.getService(SMART_PASTE_SERVICE_KEY);

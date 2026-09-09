@@ -226,7 +226,7 @@ interface PartialTheme {
 Default light theme with white background and blue accent:
 
 ```ts
-import { LIGHT_THEME } from '@notectl/core';
+import { LIGHT_THEME } from '@venuzle/notectl';
 // background: '#ffffff', primary: '#4a90d9', ...
 ```
 
@@ -235,7 +235,7 @@ import { LIGHT_THEME } from '@notectl/core';
 Dark theme inspired by Catppuccin Mocha:
 
 ```ts
-import { DARK_THEME } from '@notectl/core';
+import { DARK_THEME } from '@venuzle/notectl';
 // background: '#1e1e2e', primary: '#89b4fa', ...
 ```
 
@@ -248,7 +248,7 @@ import { DARK_THEME } from '@notectl/core';
 Creates a new theme by merging overrides into a base theme:
 
 ```ts
-import { createTheme, LIGHT_THEME } from '@notectl/core';
+import { createTheme, LIGHT_THEME } from '@venuzle/notectl';
 
 const custom = createTheme(LIGHT_THEME, {
   name: 'corporate',
@@ -267,7 +267,7 @@ All unspecified tokens inherit from the base theme.
 Resolves a `ThemePreset` string or `Theme` object to a full `Theme`:
 
 ```ts
-import { resolveTheme } from '@notectl/core';
+import { resolveTheme } from '@venuzle/notectl';
 
 const theme = resolveTheme('dark');     // returns DARK_THEME
 const same = resolveTheme(DARK_THEME);  // returns the same object
@@ -287,7 +287,7 @@ const same = resolveTheme(DARK_THEME);  // returns the same object
 Generates a CSS string containing all theme custom properties scoped to `:host`:
 
 ```ts
-import { generateThemeCSS, LIGHT_THEME } from '@notectl/core';
+import { generateThemeCSS, LIGHT_THEME } from '@venuzle/notectl';
 
 const css = generateThemeCSS(LIGHT_THEME);
 // :host { --notectl-bg: #ffffff; --notectl-fg: #1a1a1a; ... }
@@ -300,7 +300,7 @@ Component tokens that are not explicitly set use `var()` fallbacks to primitive 
 Creates a `CSSStyleSheet` from a theme, ready to be adopted by the shadow DOM:
 
 ```ts
-import { createThemeStyleSheet, DARK_THEME } from '@notectl/core';
+import { createThemeStyleSheet, DARK_THEME } from '@venuzle/notectl';
 
 const sheet = createThemeStyleSheet(DARK_THEME);
 shadowRoot.adoptedStyleSheets = [...shadowRoot.adoptedStyleSheets, sheet];

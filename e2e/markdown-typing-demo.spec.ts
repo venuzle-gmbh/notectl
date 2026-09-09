@@ -12,7 +12,7 @@
  * It is excluded from normal e2e runs (see `playwright.config.ts` testIgnore)
  * and only runs through the dedicated `playwright.markdown-demo.config.ts`:
  *
- *   pnpm --filter @notectl/core build   # e2e serves the built dist/
+ *   pnpm --filter @venuzle/notectl build   # e2e serves the built dist/
  *   pnpm markdown-demo:record
  */
 import { execFileSync } from 'node:child_process';

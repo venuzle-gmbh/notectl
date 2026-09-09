@@ -105,7 +105,7 @@ async function verifyAutomaticRegistrationSurvivesTreeShaking() {
 		format: 'esm',
 		logLevel: 'silent',
 		stdin: {
-			contents: "import '@notectl/core';",
+			contents: "import '@venuzle/notectl';",
 			resolveDir: PACKAGE_ROOT,
 			sourcefile: 'consumer.mjs',
 		},

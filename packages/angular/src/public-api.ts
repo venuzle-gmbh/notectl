@@ -1,5 +1,5 @@
 /**
- * @notectl/angular — Angular integration for the notectl rich text editor.
+ * @venuzle/notectl-angular — Angular integration for the notectl rich text editor.
  * @packageDocumentation
  */
 
@@ -24,7 +24,7 @@ export {
 // --- Angular-specific Types ---
 export type { NotectlValue, SelectionChangeEvent } from './lib/types';
 
-// --- Re-exports from @notectl/core (convenience) ---
+// --- Re-exports from @venuzle/notectl (convenience) ---
 
 // Model types
 export type {
@@ -34,10 +34,10 @@ export type {
 	InlineNode,
 	Mark,
 	BlockAttrs,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // Selection types
-export type { EditorSelection, Position, Selection } from '@notectl/core';
+export type { EditorSelection, Position, Selection } from '@venuzle/notectl';
 
 // State types
 export type {
@@ -45,55 +45,55 @@ export type {
 	Transaction,
 	TransactionMetadata,
 	StateChangeEvent,
-} from '@notectl/core';
+} from '@venuzle/notectl';
 
 // Plugin types
-export type { Plugin, PluginConfig, PluginContext } from '@notectl/core';
+export type { Plugin, PluginConfig, PluginContext } from '@venuzle/notectl';
 
 // Theme types
-export type { Theme, PartialTheme, ThemePrimitives } from '@notectl/core';
-export { ThemePreset, LIGHT_THEME, DARK_THEME, createTheme } from '@notectl/core';
+export type { Theme, PartialTheme, ThemePrimitives } from '@venuzle/notectl';
+export { ThemePreset, LIGHT_THEME, DARK_THEME, createTheme } from '@venuzle/notectl';
 
 // Editor config
-export type { NotectlEditorConfig } from '@notectl/core';
+export type { NotectlEditorConfig } from '@venuzle/notectl';
 
 // HTML serialization option types (from sub-path export)
-export type { ContentCSSResult, ContentHTMLOptions } from '@notectl/core/html';
+export type { ContentCSSResult, ContentHTMLOptions } from '@venuzle/notectl/html';
 
 // Plugin config types (from sub-path exports)
-export type { TextFormattingConfig } from '@notectl/core/plugins/text-formatting';
-export type { FontDefinition } from '@notectl/core/plugins/font';
+export type { TextFormattingConfig } from '@venuzle/notectl/plugins/text-formatting';
+export type { FontDefinition } from '@venuzle/notectl/plugins/font';
 
 // Starter fonts
-/** @deprecated Import from '@notectl/core/fonts/starter' instead. */
-export { STARTER_FONTS } from '@notectl/core/fonts/starter';
+/** @deprecated Import from '@venuzle/notectl/fonts/starter' instead. */
+export { STARTER_FONTS } from '@venuzle/notectl/fonts/starter';
 
 // Plugins (tree-shakable re-exports from sub-paths)
-export { TextFormattingPlugin } from '@notectl/core/plugins/text-formatting';
-export { HeadingPlugin } from '@notectl/core/plugins/heading';
-export { ListPlugin } from '@notectl/core/plugins/list';
-export { LinkPlugin } from '@notectl/core/plugins/link';
-export { TablePlugin } from '@notectl/core/plugins/table';
-export { InlineCodePlugin } from '@notectl/core/plugins/inline-code';
-export { CodeBlockPlugin } from '@notectl/core/plugins/code-block';
-export { BlockquotePlugin } from '@notectl/core/plugins/blockquote';
-export { ImagePlugin } from '@notectl/core/plugins/image';
-export { VideoPlugin } from '@notectl/core/plugins/video';
-export { FormulaPlugin } from '@notectl/core/plugins/formula';
-export { FontSizePlugin } from '@notectl/core/plugins/font-size';
-export { FontPlugin } from '@notectl/core/plugins/font';
-export { TextColorPlugin } from '@notectl/core/plugins/text-color';
-export { AlignmentPlugin } from '@notectl/core/plugins/alignment';
-export { StrikethroughPlugin } from '@notectl/core/plugins/strikethrough';
-export { SuperSubPlugin } from '@notectl/core/plugins/super-sub';
-export { HighlightPlugin } from '@notectl/core/plugins/highlight';
-export { HorizontalRulePlugin } from '@notectl/core/plugins/horizontal-rule';
-export { HardBreakPlugin } from '@notectl/core/plugins/hard-break';
-export { PrintPlugin } from '@notectl/core/plugins/print';
-export { SmartPastePlugin } from '@notectl/core/plugins/smart-paste';
-export { ToolbarPlugin } from '@notectl/core/plugins/toolbar';
-export { TextDirectionPlugin } from '@notectl/core/plugins/text-direction';
-export { BidiIsolationPlugin } from '@notectl/core/plugins/bidi-isolation';
-export { TextDirectionAutoPlugin } from '@notectl/core/plugins/text-direction-auto';
-export { CaretNavigationPlugin } from '@notectl/core/plugins/caret-navigation';
-export { GapCursorPlugin } from '@notectl/core/plugins/gap-cursor';
+export { TextFormattingPlugin } from '@venuzle/notectl/plugins/text-formatting';
+export { HeadingPlugin } from '@venuzle/notectl/plugins/heading';
+export { ListPlugin } from '@venuzle/notectl/plugins/list';
+export { LinkPlugin } from '@venuzle/notectl/plugins/link';
+export { TablePlugin } from '@venuzle/notectl/plugins/table';
+export { InlineCodePlugin } from '@venuzle/notectl/plugins/inline-code';
+export { CodeBlockPlugin } from '@venuzle/notectl/plugins/code-block';
+export { BlockquotePlugin } from '@venuzle/notectl/plugins/blockquote';
+export { ImagePlugin } from '@venuzle/notectl/plugins/image';
+export { VideoPlugin } from '@venuzle/notectl/plugins/video';
+export { FormulaPlugin } from '@venuzle/notectl/plugins/formula';
+export { FontSizePlugin } from '@venuzle/notectl/plugins/font-size';
+export { FontPlugin } from '@venuzle/notectl/plugins/font';
+export { TextColorPlugin } from '@venuzle/notectl/plugins/text-color';
+export { AlignmentPlugin } from '@venuzle/notectl/plugins/alignment';
+export { StrikethroughPlugin } from '@venuzle/notectl/plugins/strikethrough';
+export { SuperSubPlugin } from '@venuzle/notectl/plugins/super-sub';
+export { HighlightPlugin } from '@venuzle/notectl/plugins/highlight';
+export { HorizontalRulePlugin } from '@venuzle/notectl/plugins/horizontal-rule';
+export { HardBreakPlugin } from '@venuzle/notectl/plugins/hard-break';
+export { PrintPlugin } from '@venuzle/notectl/plugins/print';
+export { SmartPastePlugin } from '@venuzle/notectl/plugins/smart-paste';
+export { ToolbarPlugin } from '@venuzle/notectl/plugins/toolbar';
+export { TextDirectionPlugin } from '@venuzle/notectl/plugins/text-direction';
+export { BidiIsolationPlugin } from '@venuzle/notectl/plugins/bidi-isolation';
+export { TextDirectionAutoPlugin } from '@venuzle/notectl/plugins/text-direction-auto';
+export { CaretNavigationPlugin } from '@venuzle/notectl/plugins/caret-navigation';
+export { GapCursorPlugin } from '@venuzle/notectl/plugins/gap-cursor';

@@ -1,5 +1,5 @@
 import { DestroyRef, Injectable, computed, inject, signal } from '@angular/core';
-import type { EditorState, StateChangeEvent, Transaction } from '@notectl/core';
+import type { EditorState, StateChangeEvent, Transaction } from '@venuzle/notectl';
 import { type Observable, Subject } from 'rxjs';
 
 import type { NotectlEditorComponent } from './notectl-editor.component';

@@ -13,7 +13,7 @@ and static or print output.
 ## Usage
 
 ```ts
-import { TablePlugin } from '@notectl/core/plugins/table';
+import { TablePlugin } from '@venuzle/notectl/plugins/table';
 
 new TablePlugin();
 
@@ -82,7 +82,7 @@ Each plugin resolves its locale automatically from the editor's global `locale` 
 override the table locale independently:
 
 ```ts
-import { TablePlugin, loadTableLocale } from '@notectl/core/plugins/table';
+import { TablePlugin, loadTableLocale } from '@venuzle/notectl/plugins/table';
 
 const tableDe = await loadTableLocale('de');
 new TablePlugin({ locale: tableDe });
@@ -150,7 +150,7 @@ Closing or cancelling the dialog returns focus to its invoking control or cell.
 selection for common operations and explicit zero-based logical coordinates for integrations.
 
 ```ts
-import { TableSizingServiceKey } from '@notectl/core/plugins/table';
+import { TableSizingServiceKey } from '@venuzle/notectl/plugins/table';
 
 const sizing = editor.getService(TableSizingServiceKey);
 if (!sizing) throw new Error('TablePlugin is not registered');
@@ -224,7 +224,7 @@ sizing.resetSize(
 ### Types and return values
 
 ```ts
-import type { BlockId } from '@notectl/core';
+import type { BlockId } from '@venuzle/notectl';
 
 type TableDimensionInput = number | 'auto';
 type TableDimensionState = number | 'auto' | 'mixed' | 'unavailable';
@@ -452,7 +452,7 @@ operations resolve them through the logical grid.
 Access the existing selection service programmatically:
 
 ```ts
-import { TableSelectionServiceKey } from '@notectl/core/plugins/table';
+import { TableSelectionServiceKey } from '@venuzle/notectl/plugins/table';
 
 const selection = editor.getService(TableSelectionServiceKey);
 ```

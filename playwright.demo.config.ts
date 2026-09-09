@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  *
  * The demo spec is excluded from the normal e2e config; run it explicitly:
  *
- *   pnpm --filter @notectl/core build   # e2e serves the built dist/
+ *   pnpm --filter @venuzle/notectl build   # e2e serves the built dist/
  *   pnpm demo:record
  */
 export default defineConfig({

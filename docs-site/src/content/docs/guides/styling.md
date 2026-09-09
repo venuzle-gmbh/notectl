@@ -12,7 +12,7 @@ For CSP runtime styling and nonce setup, see the [Content Security Policy guide]
 ### Using a Preset
 
 ```ts
-import { createEditor, ThemePreset } from '@notectl/core';
+import { createEditor, ThemePreset } from '@venuzle/notectl';
 
 const editor = await createEditor({
   theme: ThemePreset.Dark,
@@ -70,8 +70,8 @@ toggle.addEventListener('click', () => {
 Create a custom theme by extending a built-in base theme with partial overrides:
 
 ```ts
-import { createTheme, LIGHT_THEME, createEditor } from '@notectl/core';
-import type { Theme } from '@notectl/core';
+import { createTheme, LIGHT_THEME, createEditor } from '@venuzle/notectl';
+import type { Theme } from '@venuzle/notectl';
 
 const corporate: Theme = createTheme(LIGHT_THEME, {
   name: 'corporate',
@@ -114,8 +114,8 @@ Themes are plain objects — export them from a package:
 
 ```ts
 // my-theme-package/index.ts
-import { createTheme, DARK_THEME } from '@notectl/core';
-import type { Theme } from '@notectl/core';
+import { createTheme, DARK_THEME } from '@venuzle/notectl';
+import type { Theme } from '@venuzle/notectl';
 
 export const OCEAN_THEME: Theme = createTheme(DARK_THEME, {
   name: 'ocean',
@@ -156,7 +156,7 @@ notectl-editor {
 }
 ```
 
-This is the exact ask from [discussion #120](https://github.com/Samyssmile/notectl/discussions/120): style the table without affecting any other component.
+This is the exact ask from [discussion #120](https://github.com/venuzle-gmbh/notectl/discussions/120): style the table without affecting any other component.
 
 ## Shadow Parts
 
@@ -371,8 +371,8 @@ When a syntax highlighter is configured on the `CodeBlockPlugin`, token classes 
 To customize syntax colors, override the `codeBlock.syntax` section in your custom theme. Each token accepts either a plain color string or a `TokenStyle` object for full font-weight and font-style control:
 
 ```ts
-import { createTheme, LIGHT_THEME } from '@notectl/core';
-import type { Theme } from '@notectl/core';
+import { createTheme, LIGHT_THEME } from '@venuzle/notectl';
+import type { Theme } from '@venuzle/notectl';
 
 const myTheme: Theme = createTheme(LIGHT_THEME, {
   name: 'custom-syntax',
@@ -468,7 +468,7 @@ interface Theme {
 
 ### Exports
 
-All theme-related exports from `@notectl/core`:
+All theme-related exports from `@venuzle/notectl`:
 
 | Export | Kind | Description |
 |--------|------|-------------|

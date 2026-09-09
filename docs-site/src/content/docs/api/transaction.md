@@ -175,7 +175,7 @@ Every step is invertible for undo support:
 Every transaction can be inverted for undo:
 
 ```ts
-import { invertTransaction } from '@notectl/core';
+import { invertTransaction } from '@venuzle/notectl';
 
 const inverse = invertTransaction(transaction);
 // Applying inverse undoes the original transaction
@@ -184,7 +184,7 @@ const inverse = invertTransaction(transaction);
 Individual steps can also be inverted:
 
 ```ts
-import { invertStep } from '@notectl/core';
+import { invertStep } from '@venuzle/notectl';
 
 const invertedStep = invertStep(step);
 ```
@@ -212,7 +212,7 @@ Pure functions for applying and inverting individual steps.
 Applies a single step to a document, returning a new `Document`:
 
 ```ts
-import { applyStep } from '@notectl/core';
+import { applyStep } from '@venuzle/notectl';
 
 const newDoc: Document = applyStep(doc, step);
 ```
@@ -224,7 +224,7 @@ This is the low-level primitive used by `EditorState.apply()`. It handles all st
 Returns a step that undoes the given step:
 
 ```ts
-import { invertStep } from '@notectl/core';
+import { invertStep } from '@venuzle/notectl';
 
 const undo = invertStep(step);
 // applyStep(applyStep(doc, step), undo) ≈ doc
@@ -235,7 +235,7 @@ const undo = invertStep(step);
 Returns a transaction whose steps undo all steps of the original, in reverse order:
 
 ```ts
-import { invertTransaction } from '@notectl/core';
+import { invertTransaction } from '@venuzle/notectl';
 
 const undo = invertTransaction(tr);
 ```
@@ -251,7 +251,7 @@ Pure functions to determine whether a transaction is allowed in readonly mode.
 Returns `true` if the transaction contains no document-mutating steps (i.e. all steps are `setStoredMarks`, or there are no steps at all):
 
 ```ts
-import { isSelectionOnlyTransaction } from '@notectl/core';
+import { isSelectionOnlyTransaction } from '@venuzle/notectl';
 
 if (isSelectionOnlyTransaction(tr)) {
   // Safe to apply in readonly mode
@@ -263,7 +263,7 @@ if (isSelectionOnlyTransaction(tr)) {
 Returns `true` if the transaction may proceed in readonly mode — either it has `metadata.readonlyAllowed` set, or it is selection-only:
 
 ```ts
-import { isAllowedInReadonly } from '@notectl/core';
+import { isAllowedInReadonly } from '@venuzle/notectl';
 
 const allowed: boolean = isAllowedInReadonly(tr);
 ```
@@ -279,7 +279,7 @@ Convenience functions for building selection-only transactions.
 Builds a collapsed-cursor transaction and clears stored marks:
 
 ```ts
-import { moveTx } from '@notectl/core';
+import { moveTx } from '@venuzle/notectl';
 
 const tr = moveTx(state, blockId('b1'), 5);
 ```
@@ -289,7 +289,7 @@ const tr = moveTx(state, blockId('b1'), 5);
 Builds a range-selection transaction and clears stored marks:
 
 ```ts
-import { extendTx } from '@notectl/core';
+import { extendTx } from '@venuzle/notectl';
 
 const tr = extendTx(state, blockId('b1'), 0, blockId('b1'), 10);
 ```
@@ -299,7 +299,7 @@ const tr = extendTx(state, blockId('b1'), 0, blockId('b1'), 10);
 Builds a node-selection transaction and clears stored marks:
 
 ```ts
-import { nodeSelTx } from '@notectl/core';
+import { nodeSelTx } from '@venuzle/notectl';
 
 const tr = nodeSelTx(state, blockId('img-1'));
 ```
@@ -315,7 +315,7 @@ State-level functions for moving the cursor to block boundaries.
 Moves the cursor to offset 0 of the current block. Returns `null` if already at the start or if the selection is a node/gap cursor:
 
 ```ts
-import { moveToBlockStart } from '@notectl/core';
+import { moveToBlockStart } from '@venuzle/notectl';
 
 const tr = moveToBlockStart(state);
 ```
@@ -325,7 +325,7 @@ const tr = moveToBlockStart(state);
 Moves the cursor to the end of the current block. Returns `null` if already at the end:
 
 ```ts
-import { moveToBlockEnd } from '@notectl/core';
+import { moveToBlockEnd } from '@venuzle/notectl';
 
 const tr = moveToBlockEnd(state);
 ```
