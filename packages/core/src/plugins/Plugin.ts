@@ -96,12 +96,14 @@ export type {
 // --- Composition State (re-exported from model) ---
 
 import type { CompositionState } from '../model/CompositionState.js';
+import { HistoryManager } from '../state/History';
 export type { CompositionState } from '../model/CompositionState.js';
 
 // --- Plugin Context ---
 
 export interface PluginContext {
 	getState(): EditorState;
+	getHistory(): HistoryManager;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;

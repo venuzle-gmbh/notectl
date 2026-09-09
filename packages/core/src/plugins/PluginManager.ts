@@ -7,6 +7,7 @@
  */
 
 import type { DecorationSet } from '../decorations/Decoration.js';
+import { HistoryManager } from '../state/History';
 import type { CompositionState } from '../model/CompositionState.js';
 import { FileHandlerRegistry } from '../model/FileHandlerRegistry.js';
 import { InputRuleRegistry } from '../model/InputRuleRegistry.js';
@@ -60,6 +61,7 @@ export interface PluginManagerOptions {
 
 export interface PluginManagerInitOptions {
 	getState(): EditorState;
+	getHistory(): HistoryManager;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;
@@ -283,6 +285,7 @@ export class PluginManager {
 			pluginId,
 			logger: this.logger,
 			getState: options.getState,
+			getHistory: options.getHistory,
 			dispatch: options.dispatch,
 			getContainer: options.getContainer,
 			getPluginContainer: options.getPluginContainer,

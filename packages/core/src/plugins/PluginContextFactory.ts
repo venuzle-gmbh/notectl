@@ -4,6 +4,7 @@
  * following SRP — extracted from PluginManager.createContext().
  */
 
+import { HistoryManager } from '../state/History';
 import type { CompositionState } from '../model/CompositionState.js';
 import type { FileHandler } from '../model/FileHandlerRegistry.js';
 import type { FileHandlerRegistry } from '../model/FileHandlerRegistry.js';
@@ -83,6 +84,7 @@ export interface ContextFactoryDeps {
 	readonly pluginId: string;
 	readonly logger: Logger;
 	getState(): EditorState;
+	getHistory(): HistoryManager;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;
@@ -630,6 +632,7 @@ export function createPluginContext(deps: ContextFactoryDeps): {
 
 	const context: PluginContext = {
 		getState: deps.getState,
+		getHistory: deps.getHistory,
 		dispatch: deps.dispatch,
 		getContainer: deps.getContainer,
 		getPluginContainer: deps.getPluginContainer,
