@@ -27,6 +27,12 @@ Build a real editor in plain HTML, React, Vue, Svelte, or Angular without lockin
 
 </div>
 
+## Changes from original repository
+
+- Renamed package to `@venuzle/notectl`
+- Added `getView()` method to PluginContext
+- Added UndoPlugin and RedoPlugin
+
 ## What you get
 
 - A framework-agnostic editor shipped as the `notectl-editor` custom element
