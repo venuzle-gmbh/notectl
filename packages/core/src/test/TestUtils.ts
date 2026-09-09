@@ -231,11 +231,11 @@ export class StateBuilder {
 			selection: sel,
 			schema: this.config.schema
 				? {
-						nodeTypes: this.config.schema.nodeTypes ?? ['paragraph'],
-						markTypes: this.config.schema.markTypes ?? ['bold', 'italic', 'underline'],
-						getNodeSpec: this.config.schema.getNodeSpec,
-						getMarkSpec: this.config.schema.getMarkSpec,
-					}
+					nodeTypes: this.config.schema.nodeTypes ?? ['paragraph'],
+					markTypes: this.config.schema.markTypes ?? ['bold', 'italic', 'underline'],
+					getNodeSpec: this.config.schema.getNodeSpec,
+					getMarkSpec: this.config.schema.getMarkSpec,
+				}
 				: undefined,
 		});
 	}
@@ -423,6 +423,7 @@ export async function pluginHarness(
 
 	await pm.init({
 		getState: () => currentState,
+		getView: () => null,
 		dispatch: trackingDispatch,
 		getContainer: () => document.createElement('div'),
 		getPluginContainer: () => document.createElement('div'),
@@ -462,6 +463,7 @@ export function makePluginOptions(
 ): PluginManagerInitOptions {
 	return {
 		getState: () => EditorState.create(),
+		getView: () => null,
 		dispatch: vi.fn(),
 		getContainer: () => document.createElement('div'),
 		getPluginContainer: () => document.createElement('div'),

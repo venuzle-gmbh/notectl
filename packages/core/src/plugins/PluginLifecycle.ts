@@ -6,6 +6,7 @@
 import { DecorationSet } from '../decorations/Decoration.js';
 import type { EditorState } from '../state/EditorState.js';
 import type { Transaction } from '../state/Transaction.js';
+import { EditorView } from '../view/EditorView.js';
 import { type Logger, consoleLogger, scopedLogger } from './Logger.js';
 import type { Plugin, PluginConfig, PluginContext } from './Plugin.js';
 import type { RegistrationTracker } from './RegistrationTracker.js';
@@ -14,6 +15,7 @@ const DEFAULT_PRIORITY = 100;
 
 export interface PluginLifecycleInitOptions {
 	getState(): EditorState;
+	getView(): EditorView | null;
 	dispatch(transaction: Transaction): void;
 	getContainer(): HTMLElement;
 	getPluginContainer(position: 'top' | 'bottom'): HTMLElement;

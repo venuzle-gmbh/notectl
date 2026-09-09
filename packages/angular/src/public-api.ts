@@ -97,3 +97,5 @@ export { BidiIsolationPlugin } from '@venuzle/notectl/plugins/bidi-isolation';
 export { TextDirectionAutoPlugin } from '@venuzle/notectl/plugins/text-direction-auto';
 export { CaretNavigationPlugin } from '@venuzle/notectl/plugins/caret-navigation';
 export { GapCursorPlugin } from '@venuzle/notectl/plugins/gap-cursor';
+export { UndoPlugin } from '@venuzle/notectl/plugins/undo';
+export { RedoPlugin } from '@venuzle/notectl/plugins/redo';

@@ -7,7 +7,6 @@
  */
 
 import type { DecorationSet } from '../decorations/Decoration.js';
-import { HistoryManager } from '../state/History';
 import type { CompositionState } from '../model/CompositionState.js';
 import { FileHandlerRegistry } from '../model/FileHandlerRegistry.js';
 import { InputRuleRegistry } from '../model/InputRuleRegistry.js';

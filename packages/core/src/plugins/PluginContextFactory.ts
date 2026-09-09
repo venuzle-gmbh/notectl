@@ -4,7 +4,6 @@
  * following SRP — extracted from PluginManager.createContext().
  */
 
-import { HistoryManager } from '../state/History';
 import type { CompositionState } from '../model/CompositionState.js';
 import type { FileHandler } from '../model/FileHandlerRegistry.js';
 import type { FileHandlerRegistry } from '../model/FileHandlerRegistry.js';

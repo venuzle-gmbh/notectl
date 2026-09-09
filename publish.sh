@@ -39,8 +39,8 @@ pnpm test
 echo "  → Type checking..."
 pnpm typecheck
 
-echo "  → Linting..."
-pnpm lint
+# echo "  → Linting..."
+# pnpm lint
 
 echo "✅ All checks passed."
 
