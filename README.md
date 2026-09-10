@@ -18,6 +18,8 @@ This project was forked from [https://github.com/Samyssmile/notectl](https://git
 - Added .vscode folder to include extension recommendations and autoformat settings
 - Added `getView(): EditorView | null` method to `PluginContext`
 - Added `UndoPlugin` and `RedoPlugin`
+- Changed all icons to Heroicons (or similar style icons if missing)
+- Style adjustments to better match email output and to fix some inconsistencies
 
 ## Documentation
 

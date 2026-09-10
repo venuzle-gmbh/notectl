@@ -275,7 +275,26 @@ export class TablePlugin implements Plugin {
 							: `<col${serializeTableDimensionAttrs(TABLE_COLUMN_WIDTH_DATA_ATTRIBUTE, 'width', width, ctx)}>`,
 					)
 					.join('');
-				return `<table${attr}><colgroup>${columns}</colgroup><tbody>${content}</tbody></table>`;
+
+				// --- FIX FOR EMAIL CLIENTS ---
+				let replacementColor: string;
+				if (borderColor === 'none') {
+					// 1. User explicitly selected "none" -> make it transparent
+					replacementColor = 'transparent';
+				} else if (isValidHexColor(borderColor ?? '')) {
+					// 2. User selected a specific color -> use that color
+					replacementColor = borderColor ?? DEFAULT_BORDER_COLOR;
+				} else {
+					// 3. borderColor is undefined (the default state)
+					// OR an invalid value -> use the default color to match the Editor's CSS fallback
+					replacementColor = DEFAULT_BORDER_COLOR;
+				}
+
+				// Regex to find the variable regardless of what the fallback value is
+				const cssVarRegex = /var\(--ntbl-bc,\s*[^)]+\)/g;
+				const finalContent = content.replace(cssVarRegex, replacementColor);
+				// -----------------------------
+				return `<table${attr}><colgroup>${columns}</colgroup><tbody>${finalContent}</tbody></table>`;
 			},
 			sanitize: {
 				tags: ['table', 'colgroup', 'col', 'thead', 'tbody', 'tfoot'],

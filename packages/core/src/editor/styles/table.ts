@@ -98,9 +98,7 @@ export const TABLE_CSS = `
 /* Outer container for table + controls */
 .ntbl-container {
 	position: relative;
-	margin: 8px 0;
-	padding-block-start: 24px;
-	padding-inline-start: 24px;
+	margin: 0;
 }
 
 .ntbl-container .notectl-table-wrapper {
@@ -209,6 +207,7 @@ export const TABLE_CSS = `
 	background: var(--notectl-hover-bg);
 	border-start-start-radius: 4px;
 	border-end-start-radius: 4px;
+    margin-left: -20px;
 }
 
 .ntbl-row-handle:hover {
@@ -639,6 +638,7 @@ export const TABLE_CSS = `
 .notectl-table-size-editor__title {
 	margin-block-end: 10px;
 	font-weight: 600;
+	color: black;
 }
 
 .notectl-table-size-editor__field {
@@ -646,6 +646,7 @@ export const TABLE_CSS = `
 	gap: 4px;
 	margin-block-end: 10px;
 	font-size: 13px;
+	color: black;
 }
 
 .notectl-table-size-editor__input-wrap {
@@ -661,7 +662,7 @@ export const TABLE_CSS = `
 	padding: 6px 8px;
 	border: 1px solid var(--notectl-border);
 	border-radius: 4px;
-	background: var(--notectl-bg);
+	background: var(--notectl-surface-overlay);
 	color: var(--notectl-fg);
 	font: inherit;
 }
