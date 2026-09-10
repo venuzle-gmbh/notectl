@@ -131,7 +131,7 @@ export class HorizontalRulePlugin implements Plugin {
 
 	private registerToolbarItem(context: PluginContext): void {
 		const icon =
-			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11h16v2H4z"/></svg>';
+			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" /></svg>';
 
 		context.registerToolbarItem({
 			id: 'horizontal-rule',
