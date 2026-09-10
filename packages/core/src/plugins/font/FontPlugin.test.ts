@@ -268,7 +268,7 @@ describe('FontPlugin', () => {
 			expect(label?.textContent).toBe('Test Font');
 
 			const check = activeItem?.querySelector('.notectl-font-picker__check');
-			expect(check?.textContent).toBe('\u2713');
+			check?.innerHTML.startsWith('<svg') && check?.innerHTML.endsWith('</svg>');
 		});
 
 		it('shows font preview with correct font-family on label', async () => {

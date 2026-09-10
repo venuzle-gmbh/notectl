@@ -720,7 +720,9 @@ describe('ToolbarPlugin', () => {
 
 			const arrowSpan = btn.querySelector('.notectl-toolbar-combobox__arrow');
 			expect(arrowSpan).not.toBeNull();
-			expect(arrowSpan?.textContent).toBe('\u25BE');
+			expect(
+				arrowSpan?.innerHTML.startsWith('<svg') && arrowSpan?.innerHTML.endsWith('</svg>'),
+			).toBeTruthy();
 		});
 
 		it('combobox button has role="combobox" and aria-haspopup="listbox"', async () => {

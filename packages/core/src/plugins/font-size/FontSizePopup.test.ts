@@ -138,7 +138,7 @@ describe('renderFontSizePopup', () => {
 
 			const active = container.querySelector('.notectl-font-size-picker__item--active');
 			const check = active?.querySelector('.notectl-font-size-picker__check');
-			expect(check?.textContent).toBe('\u2713');
+			check?.innerHTML.startsWith('<svg') && check?.innerHTML.endsWith('</svg>');
 		});
 
 		it('inactive items have no checkmark', () => {
