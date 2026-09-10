@@ -49,7 +49,7 @@ Desktop.ini
 
 # IDEs
 .idea/
-.vscode/
+# .vscode/
 *.swp
 *.swo
 *~
