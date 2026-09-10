@@ -1,8 +1,5 @@
 import { describe, it } from 'vitest';
-import {
-	expectCommandRegistered,
-	expectToolbarItem,
-} from '../../test/PluginTestUtils.js';
+import { expectCommandRegistered, expectToolbarItem } from '../../test/PluginTestUtils.js';
 import { pluginHarness } from '../../test/TestUtils.js';
 import { UndoPlugin } from './UndoPlugin.js';
 

@@ -3,15 +3,11 @@
  * with NodeSpec, insert command, input rule, keyboard shortcut, and toolbar button.
  */
 
-import { EditorView } from '../../view/EditorView.js';
+import type { EditorView } from '../../view/EditorView.js';
 import type { Plugin, PluginContext } from '../Plugin.js';
 import { resolveLocale } from '../shared/PluginHelpers.js';
 import { formatShortcut } from '../shared/ShortcutFormatting.js';
-import {
-	UNDO_LOCALE_EN,
-	type UndoLocale,
-	loadUndoLocale,
-} from './UndoLocale.js';
+import { UNDO_LOCALE_EN, type UndoLocale, loadUndoLocale } from './UndoLocale.js';
 
 // --- Configuration ---
 
@@ -38,12 +34,7 @@ export class UndoPlugin implements Plugin {
 	}
 
 	async init(context: PluginContext): Promise<void> {
-		this.locale = await resolveLocale(
-			context,
-			this.config.locale,
-			UNDO_LOCALE_EN,
-			loadUndoLocale,
-		);
+		this.locale = await resolveLocale(context, this.config.locale, UNDO_LOCALE_EN, loadUndoLocale);
 		this.registerCommands(context);
 		this.registerToolbarItem(context);
 	}

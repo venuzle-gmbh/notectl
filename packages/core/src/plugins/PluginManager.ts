@@ -19,6 +19,7 @@ import type { TextInputInterceptorEntry } from '../model/TextInputInterceptor.js
 import type { EditorState } from '../state/EditorState.js';
 import type { Transaction } from '../state/Transaction.js';
 import { finalizeTransaction } from '../state/TransactionFinalizer.js';
+import type { EditorView } from '../view/EditorView.js';
 import { NodeViewRegistry } from '../view/NodeViewRegistry.js';
 import { CommandRegistry } from './CommandRegistry.js';
 import { EventBus } from './EventBus.js';
@@ -39,7 +40,6 @@ import { RegistrationTracker } from './RegistrationTracker.js';
 import { ServiceRegistry } from './ServiceRegistry.js';
 import { BlockTypePickerRegistry } from './heading/BlockTypePickerRegistry.js';
 import { ToolbarRegistry } from './toolbar/ToolbarRegistry.js';
-import { EditorView } from '../view/EditorView.js';
 
 export type { MiddlewareInfo } from './MiddlewareChain.js';
 export type { PasteInterceptorEntry } from '../model/PasteInterceptor.js';

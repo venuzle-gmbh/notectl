@@ -231,11 +231,11 @@ export class StateBuilder {
 			selection: sel,
 			schema: this.config.schema
 				? {
-					nodeTypes: this.config.schema.nodeTypes ?? ['paragraph'],
-					markTypes: this.config.schema.markTypes ?? ['bold', 'italic', 'underline'],
-					getNodeSpec: this.config.schema.getNodeSpec,
-					getMarkSpec: this.config.schema.getMarkSpec,
-				}
+						nodeTypes: this.config.schema.nodeTypes ?? ['paragraph'],
+						markTypes: this.config.schema.markTypes ?? ['bold', 'italic', 'underline'],
+						getNodeSpec: this.config.schema.getNodeSpec,
+						getMarkSpec: this.config.schema.getMarkSpec,
+					}
 				: undefined,
 		});
 	}

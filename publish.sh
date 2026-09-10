@@ -39,8 +39,8 @@ pnpm test
 echo "  → Type checking..."
 pnpm typecheck
 
-# echo "  → Linting..."
-# pnpm lint
+echo "  → Linting..."
+pnpm lint
 
 echo "✅ All checks passed."
 
@@ -77,7 +77,7 @@ publish_one() {
   echo "  → $name@$version"
 
   if $USE_TOKEN; then
-    npm publish --access public && { echo "✅ $name@$version published"; return 0; }
+    npm publish --access public --tag=latest && { echo "✅ $name@$version published"; return 0; }
     echo "⚠️ Token-based publish failed. Falling back to OTP..."
     USE_TOKEN=false
   fi
@@ -85,7 +85,7 @@ publish_one() {
   [[ -n "${OTP:-}" ]] || prompt_otp
   while true; do
     set +e
-    npm publish --access public --otp="$OTP"
+    npm publish --access public --tag=latest --otp="$OTP"
     status=$?
     set -e
     [[ $status -eq 0 ]] && { echo "✅ $name@$version published"; break; }

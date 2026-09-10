@@ -25,6 +25,7 @@ import type { NodeSpecExtension, SchemaRegistry } from '../model/SchemaRegistry.
 import type { TextInputInterceptorEntry } from '../model/TextInputInterceptor.js';
 import type { EditorState } from '../state/EditorState.js';
 import type { Transaction } from '../state/Transaction.js';
+import type { EditorView } from '../view/EditorView';
 import type { NodeViewRegistry } from '../view/NodeViewRegistry.js';
 import type { EventBus } from './EventBus.js';
 import type { Logger } from './Logger.js';
@@ -46,7 +47,6 @@ import type {
 } from './Plugin.js';
 import type { BlockTypePickerRegistry } from './heading/BlockTypePickerRegistry.js';
 import type { ToolbarRegistry } from './toolbar/ToolbarRegistry.js';
-import { EditorView } from '../view/EditorView';
 
 const DEFAULT_PRIORITY = 100;
 const guardedDOMRenderers = new WeakSet<object>();
@@ -306,15 +306,15 @@ function guardNodeSpec<T extends string>(
 	const toDOM: NodeSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (node) => {
-			const outcome = executor.execute(
-				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-				() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
-			);
-			if (outcome.ok) return outcome.value;
-			const fallback = document.createElement('div');
-			fallback.setAttribute('data-block-id', node.id);
-			return fallback;
-		};
+				const outcome = executor.execute(
+					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+					() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
+				);
+				if (outcome.ok) return outcome.value;
+				const fallback = document.createElement('div');
+				fallback.setAttribute('data-block-id', node.id);
+				return fallback;
+			};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -329,12 +329,12 @@ function guardMarkSpec<T extends string>(
 	const toDOM: MarkSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (mark) => {
-			const outcome = executor.execute(
-				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-				() => requireHTMLElement(originalToDOM(mark), `${spec.type}.toDOM`),
-			);
-			return outcome.ok ? outcome.value : document.createElement('span');
-		};
+				const outcome = executor.execute(
+					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+					() => requireHTMLElement(originalToDOM(mark), `${spec.type}.toDOM`),
+				);
+				return outcome.ok ? outcome.value : document.createElement('span');
+			};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -349,15 +349,15 @@ function guardInlineNodeSpec<T extends string>(
 	const toDOM: InlineNodeSpec<T>['toDOM'] = guardedDOMRenderers.has(originalToDOM)
 		? originalToDOM
 		: (node) => {
-			const outcome = executor.execute(
-				{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
-				() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
-			);
-			if (outcome.ok) return outcome.value;
-			const fallback = document.createElement('span');
-			fallback.setAttribute('data-inline-type', node.inlineType);
-			return fallback;
-		};
+				const outcome = executor.execute(
+					{ pluginId, name: `${spec.type}:toDOM`, kind: 'schema-render' },
+					() => requireHTMLElement(originalToDOM(node), `${spec.type}.toDOM`),
+				);
+				if (outcome.ok) return outcome.value;
+				const fallback = document.createElement('span');
+				fallback.setAttribute('data-inline-type', node.inlineType);
+				return fallback;
+			};
 	guardedDOMRenderers.add(toDOM);
 	return { ...spec, toDOM, parseHTML };
 }
@@ -475,34 +475,34 @@ function guardMarkdownSyntaxExtension(
 		...extension,
 		...(matchInline
 			? {
-				matchInline(text: string, index: number) {
-					const outcome = executor.execute(
-						{
-							pluginId,
-							name: `${extension.id}:matchInline`,
-							kind: 'markdown-syntax',
-						},
-						() => validateInlineMarkdownMatch(matchInline(text, index), text.length - index),
-					);
-					return outcome.ok ? outcome.value : null;
-				},
-			}
+					matchInline(text: string, index: number) {
+						const outcome = executor.execute(
+							{
+								pluginId,
+								name: `${extension.id}:matchInline`,
+								kind: 'markdown-syntax',
+							},
+							() => validateInlineMarkdownMatch(matchInline(text, index), text.length - index),
+						);
+						return outcome.ok ? outcome.value : null;
+					},
+				}
 			: {}),
 		...(matchBlock
 			? {
-				matchBlock(lines: readonly string[], lineIndex: number) {
-					const outcome = executor.execute(
-						{
-							pluginId,
-							name: `${extension.id}:matchBlock`,
-							kind: 'markdown-syntax',
-						},
-						() =>
-							validateBlockMarkdownMatch(matchBlock(lines, lineIndex), lines.length - lineIndex),
-					);
-					return outcome.ok ? outcome.value : null;
-				},
-			}
+					matchBlock(lines: readonly string[], lineIndex: number) {
+						const outcome = executor.execute(
+							{
+								pluginId,
+								name: `${extension.id}:matchBlock`,
+								kind: 'markdown-syntax',
+							},
+							() =>
+								validateBlockMarkdownMatch(matchBlock(lines, lineIndex), lines.length - lineIndex),
+						);
+						return outcome.ok ? outcome.value : null;
+					},
+				}
 			: {}),
 	};
 }

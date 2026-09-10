@@ -3,15 +3,9 @@
 	"compilerOptions": {
 		"rootDir": "./src",
 		"paths": {
-			"@venuzle/notectl-angular": [
-				"../src/public-api.ts"
-			]
+			"@venuzle/notectl-angular": ["../src/public-api.ts"]
 		}
 	},
-	"include": [
-		"src/**/*.ts"
-	],
-	"exclude": [
-		"node_modules"
-	]
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
 }

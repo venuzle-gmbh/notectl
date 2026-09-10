@@ -21,7 +21,7 @@ import type {
  * ```
  */
 export class NotectlTestHarness {
-	constructor(private readonly fixture: ComponentFixture<NotectlEditorComponent>) { }
+	constructor(private readonly fixture: ComponentFixture<NotectlEditorComponent>) {}
 
 	/** Returns the component instance. */
 	get component(): NotectlEditorComponent {

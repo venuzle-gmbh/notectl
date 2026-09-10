@@ -96,7 +96,7 @@ export type {
 // --- Composition State (re-exported from model) ---
 
 import type { CompositionState } from '../model/CompositionState.js';
-import { EditorView } from '../view/EditorView.js';
+import type { EditorView } from '../view/EditorView.js';
 export type { CompositionState } from '../model/CompositionState.js';
 
 // --- Plugin Context ---

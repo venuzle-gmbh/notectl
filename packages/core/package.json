@@ -190,13 +190,7 @@
 		}
 	},
 	"customElements": "custom-elements.json",
-	"files": [
-		"dist",
-		"README.md",
-		"LICENSE",
-		"THIRD-PARTY-NOTICES.md",
-		"custom-elements.json"
-	],
+	"files": ["dist", "README.md", "LICENSE", "THIRD-PARTY-NOTICES.md", "custom-elements.json"],
 	"keywords": [
 		"rich-text-editor",
 		"web-component",

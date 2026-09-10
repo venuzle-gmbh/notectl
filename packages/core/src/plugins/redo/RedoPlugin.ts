@@ -3,15 +3,11 @@
  * with NodeSpec, insert command, input rule, keyboard shortcut, and toolbar button.
  */
 
-import { EditorView } from '../../view/EditorView.js';
+import type { EditorView } from '../../view/EditorView.js';
 import type { Plugin, PluginContext } from '../Plugin.js';
 import { resolveLocale } from '../shared/PluginHelpers.js';
 import { formatShortcut } from '../shared/ShortcutFormatting.js';
-import {
-	REDO_LOCALE_EN,
-	type RedoLocale,
-	loadRedoLocale,
-} from './RedoLocale.js';
+import { REDO_LOCALE_EN, type RedoLocale, loadRedoLocale } from './RedoLocale.js';
 
 // --- Configuration ---
 
@@ -38,12 +34,7 @@ export class RedoPlugin implements Plugin {
 	}
 
 	async init(context: PluginContext): Promise<void> {
-		this.locale = await resolveLocale(
-			context,
-			this.config.locale,
-			REDO_LOCALE_EN,
-			loadRedoLocale,
-		);
+		this.locale = await resolveLocale(context, this.config.locale, REDO_LOCALE_EN, loadRedoLocale);
 		this.registerCommands(context);
 		this.registerToolbarItem(context);
 	}

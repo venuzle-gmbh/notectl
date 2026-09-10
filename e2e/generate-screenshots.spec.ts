@@ -92,7 +92,7 @@ function table(
 			id: uid(),
 			type: 'table_row',
 			...(options.rowMinHeightsPx?.[rowIndex] === null ||
-				options.rowMinHeightsPx?.[rowIndex] === undefined
+			options.rowMinHeightsPx?.[rowIndex] === undefined
 				? {}
 				: { attrs: { minHeightPx: options.rowMinHeightsPx[rowIndex] } }),
 			children: cells.map((cellContent) => ({
